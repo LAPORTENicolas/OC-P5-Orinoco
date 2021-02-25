@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap" rel="stylesheet">
+        <title>Orinoco - Panier</title>
+    </head>
+
+    <body>
+        <header>
+            <a href="index.html"><h1>Orinoco</h1></a>
+
+            <ul>
+                <a href="index.html"><li>Produits</li></a>
+                <a href="panier.html"><li>Panier</li></a>
+            </ul>
+        </header>
+
+        <section class="conteneur">
+            <div class="text-conteneur">
+                <h2>Panier</h2>
+            </div>
+
+            <div class="list-panier">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-1">Nom</th>
+                            <th class="th-2">Prix</th>
+                            <th class="th-3">Quantité</th>
+                            <th class="th-4">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nounourse</td>
+                            <td>10€</td>
+                            <td>1</td>
+                            <td><button class="btn btn-red">Supprimer</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="formulaire">
+                <form method="post">
+                    <div class="input-conteneur">
+                        <label for="nom">Nom:</label>
+                        <input type="text" name="nom" placeholder="Nom">
+                    </div>
+
+                    <div class="input-conteneur">
+                        <label for="prenom">Prenom:</label>
+                        <input type="text" name="prenom" placeholder="Prenom">
+                    </div>
+
+                    <div class="input-conteneur">
+                        <label for="adresse">Adresse:</label>
+                        <input type="text" name="adresse" placeholder="Adresse">
+                    </div>
+
+                    <div class="btn-validation-conteneur">
+                        <button class="btn btn-bleu">Passer commande</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

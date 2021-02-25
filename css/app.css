@@ -1,0 +1,133 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto;
+}
+
+h1 h2 h3 h4 h5 h6 {
+    font-weight: 900;
+}
+
+p {
+    font-weight: 100;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background: #00a8ff;
+}
+
+header a h1 {
+    color: black;
+    margin-left: 5rem;
+}
+
+header ul {
+    display: flex;
+}
+
+header ul a {
+    color: black;
+    min-width: 100px;
+    list-style: none;
+    margin: auto;
+}
+
+button {
+    font-weight: 600;
+}
+
+.btn {
+    box-shadow: 1px 1px 2px #dcdde1;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.btn-bleu {
+    background-color: #0097e6;
+}
+
+.btn-red {
+    background-color: #e84118;
+}
+
+.list-produits {
+    margin: 2% 10%;
+    display: flex;
+}
+
+.text-conteneur {
+    background: #dcdde1;
+}
+
+.text-conteneur h2 {
+    padding: 5rem;
+    margin: 0;
+}
+
+.produit {
+    background: #ECECEC;
+}
+
+.produit div {
+    padding: 0 1rem 0.5em;
+}
+
+.produit .prix-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-panier {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+table {
+    background-color: #dcdde1;
+    text-align: center;
+}
+
+th {
+    padding: 1rem 0;
+    background-color: #dcdde1;
+}
+
+td{
+    padding: 1rem 0;
+    background-color: #ECECEC;
+    margin: 0;
+}
+
+.th-1 {
+    width: 40rem;
+}
+
+.th-2 {
+    width: 10rem;
+}
+
+.th-4 {
+    width: 10rem;
+}
+
+.formulaire {
+    width: 20rem;
+    margin: 3rem auto;
+}
+
+.input-conteneur {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.btn-validation-conteneur {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2rem 5rem 0 0;
+}
