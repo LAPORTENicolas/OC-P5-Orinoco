@@ -9,6 +9,11 @@ fetch('http://localhost:3000/api/teddies').then(function (reponse) {
 });
 
 let panier = [];
+
+if (sessionStorage.getItem('panier')){
+    panier = JSON.parse(sessionStorage.getItem('panier'));
+}
+
 let listProduit = document.getElementById('list-produits');
 
 function print(produits) {
@@ -70,4 +75,10 @@ function acheter(id, produit) {
         produit['quantite'] = quant;
         panier[id] = produit;
     }
+
+    if (sessionStorage.getItem('panier')){
+        sessionStorage.removeItem('panier');
+    }
+    let tmpPanier = JSON.stringify(panier);
+    sessionStorage.setItem('panier', tmpPanier);
 }
