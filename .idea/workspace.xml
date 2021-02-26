@@ -12,7 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="45ca4c51-1e72-4b4e-9637-f1ea4a2d495f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
     </list>
@@ -35,6 +34,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1ozBI4iGPEEBXe3hOkuJdlXBnwG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -63,7 +70,9 @@
       <updated>1614279456299</updated>
       <workItem from="1614279457503" duration="8742000" />
       <workItem from="1614325469905" duration="94000" />
-      <workItem from="1614325602985" duration="8615000" />
+      <workItem from="1614325602985" duration="9135000" />
+      <workItem from="1614354825684" duration="3235000" />
+      <workItem from="1614366804812" duration="1419000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -86,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614327877365</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Affichage des données de l'API">
+      <created>1614334270640</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614334270640</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +124,7 @@
     <MESSAGE value="Fichiers HTML/CSS de base" />
     <MESSAGE value="Ajout du repository JWPD5 OpenClassrooms-Student-Center" />
     <MESSAGE value="Utilisation de l'api pour récupérer les données" />
-    <option name="LAST_COMMIT_MESSAGE" value="Utilisation de l'api pour récupérer les données" />
+    <MESSAGE value="Affichage des données de l'API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Affichage des données de l'API" />
   </component>
 </project>
