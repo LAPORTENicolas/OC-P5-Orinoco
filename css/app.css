@@ -53,7 +53,7 @@ button {
     background-color: #e84118;
 }
 
-.list-produits {
+#list-produits {
     margin: 2% 10%;
     display: flex;
 }
@@ -69,13 +69,14 @@ button {
 
 .produit {
     background: #ECECEC;
+    margin: 0 1rem;
+}
+
+.produit img {
+    max-width: 300px;
 }
 
 .produit div {
-    padding: 0 1rem 0.5em;
-}
-
-.produit .prix-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;

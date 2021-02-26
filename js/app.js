@@ -1,53 +1,50 @@
-let produits;
-
 fetch('http://localhost:3000/api/teddies').then(function (reponse) {
     if (reponse.ok) {
         reponse.json().then(function(json) {
-            produits = json;
+            print(json);
         });
     } else {
         console.log("Impossible de charger l'API")
     }
 });
 
-/*
-// Initialisation des variables
-let requetteUrl = "http://localhost:3000/api/teddies";
-let requette    = new XMLHttpRequest();
-let article;
+let listProduit = document.getElementById('list-produits');
 
-// Envoye de la requette au serveur
-requette.open('GET', requetteUrl);
-requette.responseType = 'json';
-requette.send();
+function print(produits) {
+    console.log(produits)
+    for (let i in produits){
+        let produitConteneur = document.createElement('div');
+        produitConteneur.className = 'produit';
 
-// Traitement de la réponse du serveur
-requette.onload = function () {
-    article = requette.response;
-}
+        let btnConteneur = document.createElement('div');
+
+        let imgProduit      = document.createElement('img')
+        let produitTitre    = document.createElement('h3');
+        let produitPara     = document.createElement('p');
+        let produitPrix     = document.createElement('span');
+        let produitBouton   = document.createElement('button');
+
+        imgProduit.src          = produits[i].imageUrl;
+
+        produitBouton.className = 'btn btn-bleu';
+
+        let textTitre   = document.createTextNode(produits[i].name);
+        let textPara    = document.createTextNode(produits[i].description);
+        let textPrix    = document.createTextNode(produits[i].price);
+        let textBoutton = document.createTextNode('Ajouter au panier');
+
+        produitTitre.appendChild(textTitre);
+        produitPara.appendChild(textPara);
+        produitPrix.appendChild(textPrix);
+        produitBouton.appendChild(textBoutton);
 
 
-var httpRequest;
-
-function makeRequest() {
-    httpRequest = new XMLHttpRequest();
-
-    if (!httpRequest) {
-        alert('Abandon :( Impossible de créer une instance de XMLHTTP');
-        return false;
+        listProduit.appendChild(produitConteneur);
+        produitConteneur.appendChild(imgProduit);
+        produitConteneur.appendChild(produitTitre);
+        produitConteneur.appendChild(produitPara);
+        produitConteneur.appendChild(btnConteneur);
+        btnConteneur.appendChild(produitPrix);
+        btnConteneur.appendChild(produitBouton);
     }
-    httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('GET', 'http://localhost:3000/api/teddies');
-    httpRequest.send();
 }
-
-function alertContents() {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-        if (httpRequest.status === 200) {
-            return httpRequest.responseType = 'json';
-        } else {
-            alert('Il y a eu un problème avec la requête.');
-        }
-    }
-}
-*/

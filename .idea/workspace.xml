@@ -11,10 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45ca4c51-1e72-4b4e-9637-f1ea4a2d495f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +63,7 @@
       <updated>1614279456299</updated>
       <workItem from="1614279457503" duration="8742000" />
       <workItem from="1614325469905" duration="94000" />
-      <workItem from="1614325602985" duration="2157000" />
+      <workItem from="1614325602985" duration="8615000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -79,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614285243073</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Utilisation de l'api pour récupérer les données">
+      <created>1614327877365</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614327877365</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +107,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fichiers HTML/CSS de base" />
     <MESSAGE value="Ajout du repository JWPD5 OpenClassrooms-Student-Center" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout du repository JWPD5 OpenClassrooms-Student-Center" />
+    <MESSAGE value="Utilisation de l'api pour récupérer les données" />
+    <option name="LAST_COMMIT_MESSAGE" value="Utilisation de l'api pour récupérer les données" />
   </component>
 </project>
