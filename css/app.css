@@ -38,6 +38,10 @@ button {
     font-weight: 600;
 }
 
+button:hover {
+    box-shadow: 2px 2px 3px #dcdde1;
+}
+
 .btn {
     box-shadow: 1px 1px 2px #dcdde1;
     border: none;
@@ -49,8 +53,24 @@ button {
     background-color: #0097e6;
 }
 
+.btn-bleu:hover {
+    background-color: #0079b8;
+}
+
+.btn-bleu:active {
+    background-color: #00a0ff;
+}
+
 .btn-red {
     background-color: #e84118;
+}
+
+.btn-red:hover {
+    background-color: #ba3413;
+}
+
+.btn-red:active {
+    background-color: #ff3100;
 }
 
 #list-produits {

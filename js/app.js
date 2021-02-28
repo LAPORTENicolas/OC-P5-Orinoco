@@ -40,6 +40,7 @@ function print(produits) {
         produitInput.id             = 'produit' + i;
         produitInput.type           = 'number'
         produitInput.min            = 1;
+        produitInput.value          = 1;
 
         let textTitre               = document.createTextNode(produits[i].name);
         let textPara                = document.createTextNode(produits[i].description);
