@@ -12,10 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="45ca4c51-1e72-4b4e-9637-f1ea4a2d495f" name="Default Changelist" comment="Utlisation de sessionStorage pour faire passer les données de page en page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/panier.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/panier.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panier.html" beforeDir="false" afterPath="$PROJECT_DIR$/panier.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
       <workItem from="1614325602985" duration="9135000" />
       <workItem from="1614354825684" duration="3235000" />
       <workItem from="1614366804812" duration="4008000" />
-      <workItem from="1614523518562" duration="6702000" />
+      <workItem from="1614523518562" duration="7939000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -119,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614370707629</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Panier">
+      <created>1614536557539</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1614536557539</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +149,7 @@
     <MESSAGE value="Affichage des données de l'API" />
     <MESSAGE value="Création du panier + Ajout article" />
     <MESSAGE value="Utlisation de sessionStorage pour faire passer les données de page en page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Utlisation de sessionStorage pour faire passer les données de page en page" />
+    <MESSAGE value="Panier" />
+    <option name="LAST_COMMIT_MESSAGE" value="Panier" />
   </component>
 </project>

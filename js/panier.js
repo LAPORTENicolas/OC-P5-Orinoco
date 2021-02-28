@@ -5,12 +5,23 @@ if (sessionStorage.getItem('panier')){
 }
 
 function supprimer(id) {
-    if (panier[id]){
-        panier.splice(id, 1)
-        let tmpTr = document.getElementById('tr-panier' + id);
-        tmpTr.remove();
-        console.log(panier);
-    }
+   // for (let i in panier){
+        if (panier[id]){
+            //let tmpTr = document.getElementById('tr-panier' + i);
+            //tmpTr.remove();
+
+            if (sessionStorage.getItem('panier')){
+                sessionStorage.removeItem('panier');
+            }
+
+            console.log(panier[id].name + ' a été supprimer');
+
+            panier.splice(id, 1);
+            let tmpPanier = JSON.stringify(panier);
+            sessionStorage.setItem('panier', tmpPanier);
+            document.location.reload();
+        }
+   // }
 }
 
 function affichagePanier() {
@@ -68,7 +79,7 @@ function affichagePanier() {
 
         let tmpBouton       = document.createElement('button');
         tmpBouton.className = 'btn btn-red';
-        tmpBouton.onclick   = function () {supprimer(i);}
+        tmpBouton.onclick   = function () { supprimer(i);}
 
 
         tmpTd1.appendChild(tmpTextTd1);

@@ -17,7 +17,6 @@ if (sessionStorage.getItem('panier')){
 let listProduit = document.getElementById('list-produits');
 
 function print(produits) {
-    console.log(produits)
     for (let i in produits){
         let produitConteneur        = document.createElement('div');
         produitConteneur.className  = 'produit';
@@ -65,7 +64,7 @@ function print(produits) {
 }
 
 function acheter(id, produit) {
-    let quant       = parseInt(document.getElementById('produit' + id).value);
+    let quant = parseInt(document.getElementById('produit' + id).value);
 
     if (quant <= 0) { console.log('Quantité invalide'); return 1; }
 
