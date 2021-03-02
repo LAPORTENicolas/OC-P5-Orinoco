@@ -127,7 +127,7 @@ function affichagePanier() {
 }
 
 function affichageFormualire() {
-    let champs                          = ['Nom', 'Prenom', 'Adresse']
+    let champs                          = ['Nom', 'Prenom', 'Adresse', 'email']
 
     let formulaireConteneur             = document.getElementById('formulaire');
     formulaireConteneur.className       = 'formulaire';

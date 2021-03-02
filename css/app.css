@@ -160,3 +160,24 @@ td{
     justify-content: flex-end;
     margin: 2rem 5rem 0 0;
 }
+
+.conteneur-produit {
+    margin: 2% 10%;
+    background-color: #dcdde1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.conteneur-produit img {
+    max-height: 400px;
+}
+
+.conteneur-produit div {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteneur-produit div * {
+    margin: 0.5rem 0;
+}

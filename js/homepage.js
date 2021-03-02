@@ -27,12 +27,13 @@ function print(produits) {
         let produitTitre            = document.createElement('h3');
         let produitPara             = document.createElement('p');
         let produitPrix             = document.createElement('span');
-        let produitBouton           = document.createElement('button');
+        let produitBouton           = document.createElement('a');
         let produitSelection        = document.createElement('select');
 
         imgProduit.src              = produits[i].imageUrl;
 
         produitBouton.className     = 'btn btn-bleu';
+        produitBouton.href          = 'produit.html?produitID=' + produits[i]._id;
 
         let textTitre               = document.createTextNode(produits[i].name);
         let textPara                = document.createTextNode(produits[i].description);
@@ -67,33 +68,4 @@ function print(produits) {
         btnConteneur.appendChild(produitPrix);
         btnConteneur.appendChild(produitBouton);
     }
-}
-
-function acheter(id, produit) {
-    let quant = parseInt(document.getElementById('produit' + id).value);
-
-    if (quant <= 0) {
-        console.log('Quantité invalide');
-        return 1;
-    }
-
-    for (let i in panier) {
-        if (panier[i]._id === produit._id) {
-            panier[i].quantite = panier[i].quantite + quant;
-            enrPanier();
-            return 0;
-        }
-    }
-
-    produit['quantite'] = quant;
-    panier[id] = produit;
-    enrPanier();
-}
-
-function enrPanier(){
-    if (sessionStorage.getItem('panier')) {
-        sessionStorage.removeItem('panier');
-    }
-    let tmpPanier = JSON.stringify(panier);
-    sessionStorage.setItem('panier', tmpPanier);
 }
