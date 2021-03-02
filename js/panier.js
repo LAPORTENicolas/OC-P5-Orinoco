@@ -1,8 +1,5 @@
 let panier                  = [];
-
-if (sessionStorage.getItem('panier')){
-    panier = JSON.parse(sessionStorage.getItem('panier'));
-}
+panier                      = gestionPanier();
 
 function supprimer(id) {
    // for (let i in panier){
@@ -25,6 +22,7 @@ function supprimer(id) {
 }
 
 function affichagePanier() {
+    let prix                    = 0;
     let panierConteneur         = document.getElementById('conteneur-panier');
     let panierTableau           = document.createElement('table');
     let panierThead             = document.createElement('thead');
@@ -36,7 +34,7 @@ function affichagePanier() {
     panierTh1.appendChild(textPanierTh1);
 
     let panierTh2               = document.createElement('th');
-    let textPanierTh2           = document.createTextNode('Prix');
+    let textPanierTh2           = document.createTextNode('Prix unitaire');
     panierTh2.className         = 'th-2';
     panierTh2.appendChild(textPanierTh2);
 
@@ -54,6 +52,17 @@ function affichagePanier() {
     let panierBouton            = document.createElement('button');
     panierBouton.className      = 'btn btn-red';
 
+    let prixTotalTr1            = document.createElement('td');
+    let prixTotalTr2            = document.createElement('td');
+
+    let prixTotalConteneur  = document.createElement('tr');
+
+    let prixTotalLegende    = document.createElement('td');
+    let textLegende         = document.createTextNode('Prix total:');
+    prixTotalLegende.appendChild(textLegende);
+
+    let prixTotal           = document.createElement('td');
+
     panierConteneur.appendChild(panierTableau);
     panierTableau.appendChild(panierThead);
     panierTableau.appendChild(panierTbody);
@@ -63,45 +72,135 @@ function affichagePanier() {
     panierTr.appendChild(panierTh3);
     panierTr.appendChild(panierTh4);
 
+
     for (let i in panier){
-        let panierTr2       = document.createElement('tr');
-        panierTr2.id        = 'tr-panier' + i;
+        if (panier[i] != null) {
 
-        let tmpTd1          = document.createElement('td');
-        let tmpTd2          = document.createElement('td');
-        let tmpTd3          = document.createElement('td');
-        let tmpTd4          = document.createElement('td');
+            prix = prix + (panier[i].price*panier[i].quantite);
+            let panierTr2 = document.createElement('tr');
+            panierTr2.id = 'tr-panier' + i;
 
-        let tmpTextTd1      = document.createTextNode(panier[i].name);
-        let tmpTextTd2      = document.createTextNode(panier[i].price);
-        let tmpTextTd3      = document.createTextNode(panier[i].quantite);
-        let tmpTextTd4      = document.createTextNode("Supprimer");
+            let tmpTd1 = document.createElement('td');
+            let tmpTd2 = document.createElement('td');
+            let tmpTd3 = document.createElement('td');
+            let tmpTd4 = document.createElement('td');
 
-        let tmpBouton       = document.createElement('button');
-        tmpBouton.className = 'btn btn-red';
-        tmpBouton.onclick   = function () { supprimer(i);}
+            let tmpTextTd1 = document.createTextNode(panier[i].name);
+            let tmpTextTd2 = document.createTextNode(panier[i].price.toString().replace('00', '.00€'));
+            let tmpTextTd3 = document.createTextNode(panier[i].quantite);
+            let tmpTextTd4 = document.createTextNode("Supprimer");
+
+            let tmpBouton = document.createElement('button');
+            tmpBouton.className = 'btn btn-red';
+            tmpBouton.onclick = function () {
+                supprimer(i);
+            }
 
 
-        tmpTd1.appendChild(tmpTextTd1);
-        tmpTd2.appendChild(tmpTextTd2);
-        tmpTd3.appendChild(tmpTextTd3);
-        tmpBouton.appendChild(tmpTextTd4);
+            tmpTd1.appendChild(tmpTextTd1);
+            tmpTd2.appendChild(tmpTextTd2);
+            tmpTd3.appendChild(tmpTextTd3);
+            tmpBouton.appendChild(tmpTextTd4);
 
-        tmpTd4.appendChild(tmpBouton);
+            tmpTd4.appendChild(tmpBouton);
 
-        panierTr2.appendChild(tmpTd1);
-        panierTr2.appendChild(tmpTd2);
-        panierTr2.appendChild(tmpTd3);
-        panierTr2.appendChild(tmpTd4);
+            panierTr2.appendChild(tmpTd1);
+            panierTr2.appendChild(tmpTd2);
+            panierTr2.appendChild(tmpTd3);
+            panierTr2.appendChild(tmpTd4);
 
-        panierTbody.appendChild(panierTr2);
-
+            panierTbody.appendChild(panierTr2);
+        }
 
     }
+
+    let textPrixTotal       = document.createTextNode(prix.toString().replace('00', '.00€'));
+    prixTotal.appendChild(textPrixTotal);
+
+    panierTbody.appendChild(prixTotalConteneur);
+    prixTotalConteneur.appendChild(prixTotalTr1);
+    prixTotalConteneur.appendChild(prixTotalTr2);
+    prixTotalConteneur.appendChild(prixTotalLegende);
+    prixTotalConteneur.appendChild(prixTotal);
+
+    affichageFormualire();
+}
+
+function affichageFormualire() {
+    let champs                          = ['Nom', 'Prenom', 'Adresse']
+
+    let formulaireConteneur             = document.getElementById('formulaire');
+    formulaireConteneur.className       = 'formulaire';
+
+    //let formulaireForm                  = document.createElement('form');
+    //formulaireForm.method               = 'post';
+
+    let formulaireBtnConteneur          = document.createElement('div');
+    formulaireBtnConteneur.className    = 'btn-validation-conteneur';
+
+    let formulaireBoutton               = document.createElement('button');
+    let formulaireBouttonText           = document.createTextNode('Payer');
+    formulaireBoutton.className         = 'btn btn-bleu';
+    formulaireBoutton.id                = 'payer';
+    //formulaireBoutton.onclick           = payer();
+    formulaireBoutton.appendChild(formulaireBouttonText);
+
+    //formulaireConteneur.appendChild(formulaireForm);
+
+    for (let i in champs) {
+        let tmpDivConteneur             = document.createElement('div');
+        tmpDivConteneur.className       = 'input-conteneur';
+
+        let tmpLabel                    = document.createElement('label');
+        let tmpLabelText                = document.createTextNode(champs[i] + ':');
+        tmpLabel.htmlFor                = champs[i];
+        tmpLabel.appendChild(tmpLabelText);
+
+        let tmpInput                    = document.createElement('input');
+        tmpInput.type                   = 'text';
+        tmpInput.name                   = champs[i];
+        tmpInput.placeholder            = champs[i];
+        tmpInput.id                     = champs[i];
+        tmpInput.value                  = 'a';
+        formulaireConteneur.appendChild(tmpDivConteneur);
+        tmpDivConteneur.appendChild(tmpLabel);
+        tmpDivConteneur.appendChild(tmpInput);
+    }
+
+    formulaireConteneur.appendChild(formulaireBtnConteneur);
+    formulaireBtnConteneur.appendChild(formulaireBoutton);
+}
+
+function payer(){
+    /*
+    let prenom  = document.getElementById('Prenom').value;
+    let nom     = document.getElementById('Nom').value;
+    let adresse = document.getElementById('Adresse').value;
+    */
+
+    //console.log(prenom + nom + adresse)
 }
 
 if (panier.length === 0) {
+    let div         = document.getElementById('conteneur-panier');
+    let titre       = document.createElement('h2');
+    let textTitre   = document.createTextNode('Panier vide');
+    titre.appendChild(textTitre);
+
+    div.appendChild(titre);
+
     console.log('Panier vide');
 } else {
     affichagePanier();
 }
+
+let boutton = document.getElementById('payer');
+
+boutton.addEventListener('click', function (e){
+    let formulaire = {
+        'Nom': document.getElementById('Nom').value,
+        'Prenom': document.getElementById('Prenom').value,
+        'Adresse': document.getElementById('Adresse').value
+    }
+
+})
