@@ -127,7 +127,7 @@ function affichagePanier() {
 }
 
 function affichageFormualire() {
-    let champs                          = ['Nom', 'Prenom', 'Adresse', 'email']
+    let champs                          = ['Nom', 'Prenom', 'Adresse', 'Ville', 'Email']
 
     let formulaireConteneur             = document.getElementById('formulaire');
     formulaireConteneur.className       = 'formulaire';
@@ -197,10 +197,31 @@ if (panier.length === 0) {
 let boutton = document.getElementById('payer');
 
 boutton.addEventListener('click', function (e){
-    let formulaire = {
-        'Nom': document.getElementById('Nom').value,
-        'Prenom': document.getElementById('Prenom').value,
-        'Adresse': document.getElementById('Adresse').value
-    }
-
+    envoye({
+        contact: {
+            firstName: document.getElementById('Nom').value,
+            lastName: document.getElementById('Prenom').value,
+            address: document.getElementById('Adresse').value,
+            city: document.getElementById('Ville').value,
+            email: document.getElementById('Email').value
+       },
+        products: [panier[0]._id]
+        },
+    )
 })
+
+const envoye = async function(data) {
+    let reponse = await fetch('http://localhost:3000/api/teddies/order', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+
+    let dataReponse = await reponse.json();
+
+    if (reponse.ok) {
+
+    }
+}
