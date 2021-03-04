@@ -4,17 +4,9 @@ let url         = 'http://localhost:3000/api/teddies';
 
 panier = gestionPanier(panier);
 
-async function getJson(url) {
-    let reponse = await fetch(url);
-
-    if (reponse.ok){
-        return await print(await reponse.json());
-    } else {
-        console.log("Impossible de charger l'API, erreur", reponse.status, ':', reponse.statusText);
-    }
-}
-
+// Permet d'affiché les produits
 function print(produits) {
+    // Boucle pour affiché chaque produit
     for (let i in produits){
         let produitConteneur        = document.createElement('div');
         produitConteneur.className  = 'produit';
@@ -46,7 +38,6 @@ function print(produits) {
         produitPrix.appendChild(textPrix);
         produitBouton.appendChild(textBoutton);
 
-
         listProduit.appendChild(produitConteneur);
         produitConteneur.appendChild(imgProduit);
         produitConteneur.appendChild(textConteneur);
@@ -54,21 +45,10 @@ function print(produits) {
         textConteneur.appendChild(produitPara);
         textConteneur.appendChild(btnConteneur);
 
-/*
-        if (produits[i].colors){
-            let color = produits[i].colors
-            for (let f in color){
-                let tmpOption   = document.createElement('option');
-                let tmpText     = document.createTextNode(color[f]);
-                tmpOption.appendChild(tmpText);
-                produitSelection.appendChild(tmpOption);
-            }
-        }
-
- */
         btnConteneur.appendChild(produitPrix);
         btnConteneur.appendChild(produitBouton);
     }
 }
 
-getJson(url);
+// Affiche la page
+getJson(url, true);

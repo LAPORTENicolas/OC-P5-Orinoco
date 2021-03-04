@@ -1,5 +1,8 @@
-let id = window.location.search.replace('?produitID=', '');
-let panier = [];
+// Récuperation de l'id
+let id      = window.location.search.replace('?produitID=', '');
+let panier  = [];
+
+// Actualisation du panier
 panier = gestionPanier(panier);
 
 fetch('http://localhost:3000/api/teddies/' + id).then(function (reponse) {
@@ -12,6 +15,7 @@ fetch('http://localhost:3000/api/teddies/' + id).then(function (reponse) {
         document.location.href='/allApp/OC-P5-Orinoco/';
     }
 });
+
 
 function affichageProduit(json){
     let conteneur = document.getElementById('conteneur-produit');

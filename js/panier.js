@@ -2,6 +2,7 @@ let panier                  = [];
 let prixTotalS              = 0;
 panier                      = gestionPanier();
 
+// Permet de supprimer un élément du panier
 function supprimer(id) {
    // for (let i in panier){
         if (panier[id]){
@@ -22,6 +23,7 @@ function supprimer(id) {
    // }
 }
 
+// Permet d'affiché le panier
 function affichagePanier() {
     let prix                    = 0;
     let panierConteneur         = document.getElementById('conteneur-panier');
@@ -128,6 +130,7 @@ function affichagePanier() {
     affichageFormualire();
 }
 
+// Permet d'affiché le formulaire
 function affichageFormualire() {
     let champs                          = ['Nom', 'Prenom', 'Adresse', 'Ville', 'Email']
 
@@ -172,6 +175,7 @@ function affichageFormualire() {
     formulaireBtnConteneur.appendChild(formulaireBoutton);
 }
 
+// Vérifie si le panier n'est pas vide avant d'affiché la page sinon redirection sur la page des produits
 if (panier === [] || panier === undefined) {
     let div         = document.getElementById('conteneur-panier');
     let titre       = document.createElement('h2');
@@ -188,6 +192,7 @@ if (panier === [] || panier === undefined) {
 
 let boutton = document.getElementById('payer');
 
+// Vérifie si le bouton est cliqué
 boutton.addEventListener('click', function (e){
     envoye({
         contact: {
@@ -202,7 +207,9 @@ boutton.addEventListener('click', function (e){
     )
 })
 
+// Permet d'envoyer la req de commande a l'API
 const envoye = async function(data) {
+    // Stocke le reslutat de la req fetch, Fetch envoye une requete a l'API en post contenant du JSON transformé en "string"
     let reponse = await fetch('http://localhost:3000/api/teddies/order', {
         method: 'POST',
         headers: {
@@ -211,12 +218,15 @@ const envoye = async function(data) {
         body: JSON.stringify(data)
     })
 
-    let dataReponse = await reponse.json();
-
     if (reponse.ok) {
+        // dataReponse récupere le json de la réponse de l'API
+        let dataReponse = await reponse.json();
+        // Supression du panier
         supressionDuPanier();
-        sessionStorage.setItem('confirmation', JSON.stringify(dataReponse));
-        sessionStorage.setItem('prixTotal', prixTotalS);
+        // Enregistrement des données de la commande
+        localStorage.setItem('confirmation', JSON.stringify(dataReponse));
+        localStorage.setItem('prixTotal', prixTotalS);
+        // Redicrection vers la page de confirmation
         document.location.href = 'confirmation.html';
     }
 }
