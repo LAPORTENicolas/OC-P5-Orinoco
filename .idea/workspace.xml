@@ -13,9 +13,8 @@
     <list default="true" id="45ca4c51-1e72-4b4e-9637-f1ea4a2d495f" name="Default Changelist" comment="Utlisation de sessionStorage pour faire passer les données de page en page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/panier.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/panier.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/produit.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/homepage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,21 +63,6 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -95,7 +79,10 @@
       <workItem from="1614523518562" duration="8696000" />
       <workItem from="1614685056338" duration="1938000" />
       <workItem from="1614687103174" duration="12686000" />
-      <workItem from="1614719249346" duration="4252000" />
+      <workItem from="1614719249346" duration="5758000" />
+      <workItem from="1614776113675" duration="8042000" />
+      <workItem from="1614806307550" duration="10000" />
+      <workItem from="1614854581124" duration="456000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -167,7 +154,28 @@
       <option name="project" value="LOCAL" />
       <updated>1614708472917</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Modification structure">
+      <created>1614723739043</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1614723739043</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Ajout de la page produit">
+      <created>1614723767254</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1614723767254</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Utlisation de l'api pour valider la panier">
+      <created>1614783089108</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1614783089108</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +204,9 @@
     <MESSAGE value="Supr. des articles du panier" />
     <MESSAGE value="Modification de la page d'index" />
     <MESSAGE value="Modification de la page panier" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modification de la page panier" />
+    <MESSAGE value="Modification structure" />
+    <MESSAGE value="Ajout de la page produit" />
+    <MESSAGE value="Utlisation de l'api pour valider la panier" />
+    <option name="LAST_COMMIT_MESSAGE" value="Utlisation de l'api pour valider la panier" />
   </component>
 </project>

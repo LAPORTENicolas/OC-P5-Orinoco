@@ -4,6 +4,10 @@ body {
     font-family: Roboto;
 }
 
+a {
+    text-decoration: none;
+}
+
 h1 h2 h3 h4 h5 h6 {
     font-weight: 900;
 }
@@ -94,10 +98,11 @@ button:hover {
 .produit {
     background: #ECECEC;
     margin: 0 1rem;
+    height: min-content;
 }
 
 .produit img {
-    max-width: 300px;
+    max-height: 200px;
 }
 
 .text-conteneur {
@@ -180,4 +185,12 @@ td{
 
 .conteneur-produit div * {
     margin: 0.5rem 0;
+}
+
+.conteneur-commande {
+    margin: 2% 10%;
+    background-color: #dcdde1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

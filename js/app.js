@@ -23,3 +23,13 @@ function gestionPanier(panier){
 
     return panier;
 }
+
+function supressionDuPanier(){
+    if (sessionStorage.getItem('panier')) {
+        panier = [];
+        sessionStorage.setItem('panier', JSON.stringify(panier));
+        console.log(panier);
+    }
+
+    return panier;
+}

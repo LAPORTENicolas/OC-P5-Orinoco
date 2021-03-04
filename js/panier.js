@@ -1,4 +1,5 @@
 let panier                  = [];
+let prixTotalS              = 0;
 panier                      = gestionPanier();
 
 function supprimer(id) {
@@ -115,6 +116,7 @@ function affichagePanier() {
     }
 
     let textPrixTotal       = document.createTextNode(prix.toString().replace('00', '.00€'));
+    prixTotalS              = textPrixTotal;
     prixTotal.appendChild(textPrixTotal);
 
     panierTbody.appendChild(prixTotalConteneur);
@@ -142,7 +144,6 @@ function affichageFormualire() {
     let formulaireBouttonText           = document.createTextNode('Payer');
     formulaireBoutton.className         = 'btn btn-bleu';
     formulaireBoutton.id                = 'payer';
-    //formulaireBoutton.onclick           = payer();
     formulaireBoutton.appendChild(formulaireBouttonText);
 
     //formulaireConteneur.appendChild(formulaireForm);
@@ -171,17 +172,7 @@ function affichageFormualire() {
     formulaireBtnConteneur.appendChild(formulaireBoutton);
 }
 
-function payer(){
-    /*
-    let prenom  = document.getElementById('Prenom').value;
-    let nom     = document.getElementById('Nom').value;
-    let adresse = document.getElementById('Adresse').value;
-    */
-
-    //console.log(prenom + nom + adresse)
-}
-
-if (panier.length === 0) {
+if (panier === [] || panier === undefined) {
     let div         = document.getElementById('conteneur-panier');
     let titre       = document.createElement('h2');
     let textTitre   = document.createTextNode('Panier vide');
@@ -190,6 +181,7 @@ if (panier.length === 0) {
     div.appendChild(titre);
 
     console.log('Panier vide');
+    document.location.href = 'index.html';
 } else {
     affichagePanier();
 }
@@ -222,6 +214,9 @@ const envoye = async function(data) {
     let dataReponse = await reponse.json();
 
     if (reponse.ok) {
-
+        supressionDuPanier();
+        sessionStorage.setItem('confirmation', JSON.stringify(dataReponse));
+        sessionStorage.setItem('prixTotal', prixTotalS);
+        document.location.href = 'confirmation.html';
     }
 }
