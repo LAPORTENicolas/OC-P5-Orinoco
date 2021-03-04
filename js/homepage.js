@@ -1,17 +1,18 @@
 let panier      = [];
 let listProduit = document.getElementById('list-produits');
+let url         = 'http://localhost:3000/api/teddies';
 
 panier = gestionPanier(panier);
 
-fetch('http://localhost:3000/api/teddies').then(function (reponse) {
-    if (reponse.ok) {
-        reponse.json().then(function(json) {
-            print(json);
-        });
+async function getJson(url) {
+    let reponse = await fetch(url);
+
+    if (reponse.ok){
+        return await print(await reponse.json());
     } else {
-        console.log("Impossible de charger l'API")
+        console.log("Impossible de charger l'API, erreur", reponse.status, ':', reponse.statusText);
     }
-});
+}
 
 function print(produits) {
     for (let i in produits){
@@ -69,3 +70,5 @@ function print(produits) {
         btnConteneur.appendChild(produitBouton);
     }
 }
+
+getJson(url);
