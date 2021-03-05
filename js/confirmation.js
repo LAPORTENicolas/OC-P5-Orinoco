@@ -3,14 +3,14 @@ if (localStorage.getItem('confirmation')) {
 
     // Récupere la commande et le prix de la commande
     let data            = JSON.parse(localStorage.getItem('confirmation'));
+    let panier          = JSON.parse(localStorage.getItem('panier'));
     let prixTotal       = 0;
     let titreConteneur  = document.getElementById('div1');
     let conteneur       = document.getElementById('conteneur-commande');
 
     // Recupere le prix total de la commande
-    for (let i in data.products){
-        prixTotal = prixTotal + data.products[i].price;
-        console.log(prixTotal);
+    for (let i in panier){
+        prixTotal = prixTotal + ((panier[i].price/100)*panier[i].quantite);
     }
 
     let titre           = document.createElement('h1');
@@ -40,7 +40,7 @@ if (localStorage.getItem('confirmation')) {
 
     divPara.appendChild(paraId);
     divPara.appendChild(paraPrix);
-
+    supressionDuPanier();
 } else {
     // S'il n'y a pas de commande ou de pris total, redirige l'utilisateur vers la page des produits
     console.log('erreur');

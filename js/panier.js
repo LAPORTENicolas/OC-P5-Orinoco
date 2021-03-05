@@ -86,7 +86,7 @@ function affichagePanier() {
     for (let i in panier){
         if (panier[i] != null) {
 
-            prix = prix + (panier[i].price*panier[i].quantite);
+            prix = prix  + ((panier[i].price/100)*panier[i].quantite);
             let panierTr2 = document.createElement('tr');
             panierTr2.id = 'tr-panier' + i;
 
@@ -128,7 +128,7 @@ function affichagePanier() {
 
     }
 
-    let textPrixTotal       = document.createTextNode(prix.toString().replace('00', '.00€'));
+    let textPrixTotal       = document.createTextNode(new Intl.NumberFormat('fr-FR', {style: 'currency', currency: 'EUR'}).format(prix));
     prixTotalS              = textPrixTotal;
     prixTotal.appendChild(textPrixTotal);
 
@@ -187,7 +187,6 @@ function affichageFormualire() {
     formulaireBtnConteneur.appendChild(formulaireBoutton);
 }
 
-
 // Permet d'envoyer la req de commande a l'API
 async function envoye(data) {
     // Stocke le reslutat de la req fetch, Fetch envoye une requete a l'API en post contenant du JSON transformé en "string"
@@ -203,8 +202,6 @@ async function envoye(data) {
     if (reponse.ok) {
         // dataReponse récupere le json de la réponse de l'API
         let dataReponse = await reponse.json();
-        // Supression du panier
-        supressionDuPanier();
         // Enregistrement des données de la commande
         localStorage.setItem('confirmation', JSON.stringify(dataReponse));
         // Redicrection vers la page de confirmation
