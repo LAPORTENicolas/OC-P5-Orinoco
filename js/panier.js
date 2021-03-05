@@ -166,6 +166,7 @@ function affichageFormualire() {
     for (let i in champs) {
         let tmpDivConteneur             = document.createElement('div');
         tmpDivConteneur.className       = 'input-conteneur';
+        tmpDivConteneur.id              = 'conteneur-' + champs[i];
 
         let tmpLabel                    = document.createElement('label');
         let tmpLabelText                = document.createTextNode(champs[i] + ':');
@@ -213,32 +214,71 @@ async function envoye(data) {
 
 // Vérification du formulaire
 function validationFormulaire(){
-    let patPrenom   = '[a-zA-Z]';
-    let patAdresse  = '[a-zA-Zéèà ]';
-    var patEmail    = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
-    let pat1        = new RegExp(patPrenom);
-    let pat2        = new RegExp(patAdresse);
-    let pat3        = new RegExp(patEmail);
+    let patPrenom           = /[a-zA-Z]/;
+    let patAdresse          = /[a-zA-Zéèà ]/;
+    var patEmail            = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
+    let pat1                = new RegExp(patPrenom);
+    let pat2                = new RegExp(patAdresse);
+    let pat3                = new RegExp(patEmail);
 
-    let prenom      = document.getElementById('Prenom').value;
-    let nom         = 'a'//document.getElementById('Nom').value;
-    let adresse     = document.getElementById('Adresse').value;
-    let ville       = document.getElementById('Ville').value;
-    let email       = document.getElementById('Email').value;
-    let erreur      = 0;
+    let prenom              = document.getElementById('Prenom').value;
+    let nom                 = document.getElementById('Nom').value;
+    let adresse             = document.getElementById('Adresse').value;
+    let ville               = document.getElementById('Ville').value;
+    let email               = document.getElementById('Email').value;
+    let erreur              = 0;
 
-    if (pat1.test(prenom) === false){
+    if (pat1.test(nom) === false){
         erreur++;
-    }if (pat1.test(nom) === false){
+        if (document.getElementById('erreur-nom') === null){
+            let tmpConteneur    = document.getElementById('conteneur-Nom');
+            let tmpPrenom       = document.createElement('span');
+            tmpPrenom.id        = 'erreur-nom';
+            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
+            tmpConteneur.appendChild(tmpPrenom);
+            document.getElementById('Nom').className = 'erreur';
+        }
+    }if (pat1.test(prenom) === false){
         erreur++;
+        if (document.getElementById('erreur-prenom') === null){
+            let tmpConteneur    = document.getElementById('conteneur-Prenom');
+            let tmpPrenom       = document.createElement('span');
+            tmpPrenom.id        = 'erreur-prenom';
+            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
+            tmpConteneur.appendChild(tmpPrenom);
+            document.getElementById('Prenom').className = 'erreur';
+        }
     }if (pat2.test(adresse) === false){
         erreur++;
+        if (document.getElementById('erreur-adresse') === null){
+            let tmpConteneur    = document.getElementById('conteneur-Adresse');
+            let tmpPrenom       = document.createElement('span');
+            tmpPrenom.id        = 'erreur-adresse';
+            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
+            tmpConteneur.appendChild(tmpPrenom);
+            document.getElementById('Adresse').className = 'erreur';
+        }
     }if (pat2.test(ville) === false){
         erreur++;
+        if (document.getElementById('erreur-ville') === null){
+            let tmpConteneur    = document.getElementById('conteneur-Ville');
+            let tmpPrenom       = document.createElement('span');
+            tmpPrenom.id        = 'erreur-ville';
+            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
+            tmpConteneur.appendChild(tmpPrenom);
+            document.getElementById('Ville').className = 'erreur';
+        }
     }if (pat3.test(email) === false){
         erreur++;
+        if (document.getElementById('erreur-email') === null){
+            let tmpConteneur    = document.getElementById('conteneur-Email');
+            let tmpPrenom       = document.createElement('span');
+            tmpPrenom.id        = 'erreur-email';
+            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
+            tmpConteneur.appendChild(tmpPrenom);
+            document.getElementById('Email').className = 'erreur';
+        }
     }
-    console.log(erreur)
     if (erreur === 0){
         return true;
     } else {

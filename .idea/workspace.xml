@@ -12,7 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="45ca4c51-1e72-4b4e-9637-f1ea4a2d495f" name="Default Changelist" comment="Utlisation de sessionStorage pour faire passer les données de page en page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/confirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/confirmation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/panier.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/panier.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +84,8 @@
       <workItem from="1614854581124" duration="11723000" />
       <workItem from="1614930905255" duration="2347000" />
       <workItem from="1614938602161" duration="2888000" />
-      <workItem from="1614969059260" duration="6806000" />
+      <workItem from="1614969059260" duration="9351000" />
+      <workItem from="1614983474852" duration="117000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -212,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614974420193</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Correction du bug sur la valeur de la commande sur la page de confirmation">
+      <created>1614976092587</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1614976092587</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +257,7 @@
     <MESSAGE value="ajout de commentaires" />
     <MESSAGE value="Commentaire dans le code" />
     <MESSAGE value="Confirmation de la commande" />
-    <option name="LAST_COMMIT_MESSAGE" value="Confirmation de la commande" />
+    <MESSAGE value="Correction du bug sur la valeur de la commande sur la page de confirmation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correction du bug sur la valeur de la commande sur la page de confirmation" />
   </component>
 </project>

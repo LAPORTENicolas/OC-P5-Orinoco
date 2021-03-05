@@ -198,3 +198,7 @@ td{
     align-items: center;
     flex-direction: column;
 }
+
+.erreur {
+    border: 2px solid red;
+}
