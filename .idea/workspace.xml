@@ -12,6 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="45ca4c51-1e72-4b4e-9637-f1ea4a2d495f" name="Default Changelist" comment="Utlisation de sessionStorage pour faire passer les données de page en page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/homepage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/panier.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/panier.js" afterDir="false" />
@@ -83,7 +84,10 @@
       <workItem from="1614719249346" duration="5758000" />
       <workItem from="1614776113675" duration="8042000" />
       <workItem from="1614806307550" duration="10000" />
-      <workItem from="1614854581124" duration="6465000" />
+      <workItem from="1614854581124" duration="11723000" />
+      <workItem from="1614930905255" duration="2347000" />
+      <workItem from="1614938602161" duration="2888000" />
+      <workItem from="1614969059260" duration="5015000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -190,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614862710468</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="ajout de commentaires">
+      <created>1614866098527</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1614866098527</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +235,7 @@
     <MESSAGE value="Utlisation de l'api pour valider la panier" />
     <MESSAGE value="Correction" />
     <MESSAGE value="Edit fetch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit fetch" />
+    <MESSAGE value="ajout de commentaires" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout de commentaires" />
   </component>
 </project>

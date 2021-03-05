@@ -4,6 +4,19 @@ let url         = 'http://localhost:3000/api/teddies';
 
 panier = gestionPanier(panier);
 
+async function getJson(url) {
+    // Execute la req a l'API
+    let reponse = await fetch(url);
+
+    // Vérifie si la req a aboutie correctement ou retourne une érreur
+    if (reponse.ok){
+        // Execute la fonctioon d'affichage avec pour argument le json de la req
+        return print(await reponse.json());
+    } else {
+        console.log("Impossible de charger l'API, erreur", reponse.status, ':', reponse.statusText);
+    }
+}
+
 // Permet d'affiché les produits
 function print(produits) {
     // Boucle pour affiché chaque produit
@@ -51,4 +64,4 @@ function print(produits) {
 }
 
 // Affiche la page
-getJson(url, true);
+getJson(url);

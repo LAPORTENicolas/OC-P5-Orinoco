@@ -55,8 +55,9 @@ function affichageProduit(json){
     divText.appendChild(selectInput);
 
     for (let i in json.colors) {
-        let tmpOption = document.createElement('option');
-        let tmpOptionText = document.createTextNode(json.colors[i]);
+        let tmpOption       = document.createElement('option');
+        let tmpOptionText   = document.createTextNode(json.colors[i]);
+        tmpOption.value     = i;
         tmpOption.appendChild(tmpOptionText);
         selectInput.appendChild(tmpOption);
     }
@@ -70,7 +71,9 @@ function affichageProduit(json){
 }
 
 function acheter(id, produit) {
-    let quant = parseInt(document.getElementById('quantite').value);
+    let select  = document.getElementById('select-input');
+    let quant   = parseInt(document.getElementById('quantite').value);
+    let couleur = select.value;
 
     if (quant <= 0) {
         console.log('Quantité invalide');
@@ -78,7 +81,7 @@ function acheter(id, produit) {
     }
 
     for (let i in panier) {
-        if (panier[i]._id === produit._id) {
+        if (panier[i]._id === produit._id && panier[i].couleur === couleur) {
             panier[i].quantite = panier[i].quantite + quant;
             enrPanier();
             return 0;
@@ -86,14 +89,15 @@ function acheter(id, produit) {
     }
 
     produit['quantite'] = quant;
+    produit['couleur']  = couleur;
     panier.push(produit);
     enrPanier();
 }
 
 function enrPanier(){
-    if (sessionStorage.getItem('panier')) {
-        sessionStorage.removeItem('panier');
+    if (localStorage.getItem('panier')) {
+        localStorage.removeItem('panier');
     }
     let tmpPanier = JSON.stringify(panier);
-    sessionStorage.setItem('panier', tmpPanier);
+    localStorage.setItem('panier', tmpPanier);
 }

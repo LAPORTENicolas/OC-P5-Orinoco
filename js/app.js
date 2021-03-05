@@ -23,30 +23,12 @@ function gestionPanier(){
 function supressionDuPanier(){
 
     // Vérifie si un panier est stocké
-    if (sessionStorage.getItem('panier')) {
+    if (localStorage.getItem('panier')) {
         // Vide le panier puis l'enregistre
         panier = [];
-        sessionStorage.setItem('panier', JSON.stringify(panier));
+        localStorage.setItem('panier', JSON.stringify(panier));
     }
 
     // Retourne le panier mis à jour
     return panier;
-}
-
-// Envoye des req get avec fetch
-async function getJson(url, affiche) {
-    // Execute la req a l'API
-    let reponse = await fetch(url);
-
-    // Vérifie si la req a aboutie correctement ou retourne une érreur
-    if (reponse.ok){
-        // Execute la fonctioon d'affichage avec pour argument le json de la req
-        if (affiche === false) {
-            return await reponse.json();
-        } else if (affiche === true) {
-            return print(await reponse.json());
-        }
-    } else {
-        console.log("Impossible de charger l'API, erreur", reponse.status, ':', reponse.statusText);
-    }
 }

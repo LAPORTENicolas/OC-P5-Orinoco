@@ -9,15 +9,15 @@ function supprimer(id) {
             //let tmpTr = document.getElementById('tr-panier' + i);
             //tmpTr.remove();
 
-            if (sessionStorage.getItem('panier')){
-                sessionStorage.removeItem('panier');
+            if (localStorage.getItem('panier')){
+                localStorage.removeItem('panier');
             }
 
             console.log(panier[id].name + ' a été supprimer');
 
             panier.splice(id, 1);
             let tmpPanier = JSON.stringify(panier);
-            sessionStorage.setItem('panier', tmpPanier);
+            localStorage.setItem('panier', tmpPanier);
             document.location.reload();
         }
    // }
@@ -47,9 +47,14 @@ function affichagePanier() {
     panierTh3.appendChild(textPanierTh3);
 
     let panierTh4               = document.createElement('th');
-    let textPanierTh4           = document.createTextNode('Supprimer');
+    let textPanierTh4           = document.createTextNode('Couleur');
     panierTh4.className         = 'th-4';
     panierTh4.appendChild(textPanierTh4);
+
+    let panierTh5               = document.createElement('th');
+    let textPanierTh5           = document.createTextNode('Supprimer');
+    panierTh4.className         = 'th-4';
+    panierTh5.appendChild(textPanierTh5);
 
     let panierTbody             = document.createElement('tbody');
     let panierBouton            = document.createElement('button');
@@ -57,6 +62,7 @@ function affichagePanier() {
 
     let prixTotalTr1            = document.createElement('td');
     let prixTotalTr2            = document.createElement('td');
+    let prixTotalTr3            = document.createElement('td');
 
     let prixTotalConteneur  = document.createElement('tr');
 
@@ -74,6 +80,7 @@ function affichagePanier() {
     panierTr.appendChild(panierTh2);
     panierTr.appendChild(panierTh3);
     panierTr.appendChild(panierTh4);
+    panierTr.appendChild(panierTh5);
 
 
     for (let i in panier){
@@ -87,11 +94,13 @@ function affichagePanier() {
             let tmpTd2 = document.createElement('td');
             let tmpTd3 = document.createElement('td');
             let tmpTd4 = document.createElement('td');
+            let tmpTd5 = document.createElement('td');
 
             let tmpTextTd1 = document.createTextNode(panier[i].name);
             let tmpTextTd2 = document.createTextNode(panier[i].price.toString().replace('00', '.00€'));
             let tmpTextTd3 = document.createTextNode(panier[i].quantite);
-            let tmpTextTd4 = document.createTextNode("Supprimer");
+            let tmpTextTd4 = document.createTextNode(panier[i].colors[panier[i].couleur]);
+            let tmpTextTd5 = document.createTextNode("Supprimer");
 
             let tmpBouton = document.createElement('button');
             tmpBouton.className = 'btn btn-red';
@@ -103,14 +112,16 @@ function affichagePanier() {
             tmpTd1.appendChild(tmpTextTd1);
             tmpTd2.appendChild(tmpTextTd2);
             tmpTd3.appendChild(tmpTextTd3);
-            tmpBouton.appendChild(tmpTextTd4);
+            tmpTd4.appendChild(tmpTextTd4);
+            tmpBouton.appendChild(tmpTextTd5);
 
-            tmpTd4.appendChild(tmpBouton);
+            tmpTd5.appendChild(tmpBouton);
 
             panierTr2.appendChild(tmpTd1);
             panierTr2.appendChild(tmpTd2);
             panierTr2.appendChild(tmpTd3);
             panierTr2.appendChild(tmpTd4);
+            panierTr2.appendChild(tmpTd5);
 
             panierTbody.appendChild(panierTr2);
         }
@@ -124,6 +135,7 @@ function affichagePanier() {
     panierTbody.appendChild(prixTotalConteneur);
     prixTotalConteneur.appendChild(prixTotalTr1);
     prixTotalConteneur.appendChild(prixTotalTr2);
+    prixTotalConteneur.appendChild(prixTotalTr3);
     prixTotalConteneur.appendChild(prixTotalLegende);
     prixTotalConteneur.appendChild(prixTotal);
 
@@ -175,41 +187,11 @@ function affichageFormualire() {
     formulaireBtnConteneur.appendChild(formulaireBoutton);
 }
 
-// Vérifie si le panier n'est pas vide avant d'affiché la page sinon redirection sur la page des produits
-if (panier === [] || panier === undefined) {
-    let div         = document.getElementById('conteneur-panier');
-    let titre       = document.createElement('h2');
-    let textTitre   = document.createTextNode('Panier vide');
-    titre.appendChild(textTitre);
-
-    div.appendChild(titre);
-
-    console.log('Panier vide');
-    document.location.href = 'index.html';
-} else {
-    affichagePanier();
-}
-
-let boutton = document.getElementById('payer');
-
-// Vérifie si le bouton est cliqué
-boutton.addEventListener('click', function (e){
-    envoye({
-        contact: {
-            firstName: document.getElementById('Nom').value,
-            lastName: document.getElementById('Prenom').value,
-            address: document.getElementById('Adresse').value,
-            city: document.getElementById('Ville').value,
-            email: document.getElementById('Email').value
-       },
-        products: [panier[0]._id]
-        },
-    )
-})
 
 // Permet d'envoyer la req de commande a l'API
-const envoye = async function(data) {
+async function envoye(data) {
     // Stocke le reslutat de la req fetch, Fetch envoye une requete a l'API en post contenant du JSON transformé en "string"
+
     let reponse = await fetch('http://localhost:3000/api/teddies/order', {
         method: 'POST',
         headers: {
@@ -225,8 +207,84 @@ const envoye = async function(data) {
         supressionDuPanier();
         // Enregistrement des données de la commande
         localStorage.setItem('confirmation', JSON.stringify(dataReponse));
-        localStorage.setItem('prixTotal', prixTotalS);
         // Redicrection vers la page de confirmation
         document.location.href = 'confirmation.html';
+    } else {
+        console.log('Erreur' + reponse.status + ':' + reponse.statusText);
     }
+}
+
+// Vérification du formulaire
+function validationFormulaire(){
+    let patPrenom   = '[a-zA-Z]';
+    let patAdresse  = '[a-zA-Zéèà ]';
+    var patEmail    = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
+    let pat1        = new RegExp(patPrenom);
+    let pat2        = new RegExp(patAdresse);
+    let pat3        = new RegExp(patEmail);
+
+    let prenom      = document.getElementById('Prenom').value;
+    let nom         = 'a'//document.getElementById('Nom').value;
+    let adresse     = document.getElementById('Adresse').value;
+    let ville       = document.getElementById('Ville').value;
+    let email       = document.getElementById('Email').value;
+    let erreur      = 0;
+
+    if (pat1.test(prenom) === false){
+        erreur++;
+    }if (pat1.test(nom) === false){
+        erreur++;
+    }if (pat2.test(adresse) === false){
+        erreur++;
+    }if (pat2.test(ville) === false){
+        erreur++;
+    }if (pat3.test(email) === false){
+        erreur++;
+    }
+    console.log(erreur)
+    if (erreur === 0){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Vérifie si le panier n'est pas vide avant d'affiché la page sinon redirection sur la page des produits
+if (panier.length === 0 || panier === 'undefined') {
+    let div         = document.getElementById('conteneur-panier');
+    let titre       = document.createElement('h2');
+    let textTitre   = document.createTextNode('Panier vide');
+    titre.appendChild(textTitre);
+
+    div.appendChild(titre);
+}
+else {
+    affichagePanier();
+    let boutton = document.getElementById('payer');
+
+    // Vérifie si le bouton est cliqué
+    boutton.addEventListener('click', function (e){
+        console.log(validationFormulaire());
+        if (validationFormulaire()){
+
+            // Création d'un tab temp qui contient les ID des art, Rempli avec for
+            let tmpID = [];
+            for (let i in panier) {
+                tmpID.push(panier[i]._id);
+            }
+            envoye({
+                    contact: {
+                        firstName: document.getElementById('Nom').value,
+                        lastName: document.getElementById('Prenom').value,
+                        address: document.getElementById('Adresse').value,
+                        city: document.getElementById('Ville').value,
+                        email: document.getElementById('Email').value
+                    },
+                    products: tmpID
+                },
+            )
+        } else {
+            console.error('Formulaire invalide');
+        }
+    })
 }
