@@ -214,12 +214,9 @@ async function envoye(data) {
 
 // Vérification du formulaire
 function validationFormulaire(){
-    let patPrenom           = /[a-zA-Z]/;
-    let patAdresse          = /[a-zA-Zéèà ]/;
-    var patEmail            = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
-    let pat1                = new RegExp(patPrenom);
-    let pat2                = new RegExp(patAdresse);
-    let pat3                = new RegExp(patEmail);
+    let patPrenom           = /^([a-zA-Z0-9-]+)$/
+    let patAdresse          = /^([a-zA-Z0-9- ]+)$/
+    let patEmail            = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
 
     let prenom              = document.getElementById('Prenom').value;
     let nom                 = document.getElementById('Nom').value;
@@ -228,7 +225,7 @@ function validationFormulaire(){
     let email               = document.getElementById('Email').value;
     let erreur              = 0;
 
-    if (pat1.test(nom) === false){
+    if (patPrenom.test(nom) === false){
         erreur++;
         if (document.getElementById('erreur-nom') === null){
             let tmpConteneur    = document.getElementById('conteneur-Nom');
@@ -238,7 +235,12 @@ function validationFormulaire(){
             tmpConteneur.appendChild(tmpPrenom);
             document.getElementById('Nom').className = 'erreur';
         }
-    }if (pat1.test(prenom) === false){
+    } else {
+        if (document.getElementById('erreur-nom')){
+            document.getElementById('Nom').classList = '';
+            document.getElementById('conteneur-nom').removeChild(document.getElementById('erreur-nom'));
+        }
+    }if (patPrenom.test(prenom) === false){
         erreur++;
         if (document.getElementById('erreur-prenom') === null){
             let tmpConteneur    = document.getElementById('conteneur-Prenom');
@@ -248,7 +250,7 @@ function validationFormulaire(){
             tmpConteneur.appendChild(tmpPrenom);
             document.getElementById('Prenom').className = 'erreur';
         }
-    }if (pat2.test(adresse) === false){
+    }if (patAdresse.test(adresse) === false){
         erreur++;
         if (document.getElementById('erreur-adresse') === null){
             let tmpConteneur    = document.getElementById('conteneur-Adresse');
@@ -258,7 +260,7 @@ function validationFormulaire(){
             tmpConteneur.appendChild(tmpPrenom);
             document.getElementById('Adresse').className = 'erreur';
         }
-    }if (pat2.test(ville) === false){
+    }if (patPrenom.test(ville) === false){
         erreur++;
         if (document.getElementById('erreur-ville') === null){
             let tmpConteneur    = document.getElementById('conteneur-Ville');
@@ -268,7 +270,7 @@ function validationFormulaire(){
             tmpConteneur.appendChild(tmpPrenom);
             document.getElementById('Ville').className = 'erreur';
         }
-    }if (pat3.test(email) === false){
+    }if (patEmail.test(email) === false){
         erreur++;
         if (document.getElementById('erreur-email') === null){
             let tmpConteneur    = document.getElementById('conteneur-Email');
@@ -279,6 +281,7 @@ function validationFormulaire(){
             document.getElementById('Email').className = 'erreur';
         }
     }
+
     if (erreur === 0){
         return true;
     } else {
