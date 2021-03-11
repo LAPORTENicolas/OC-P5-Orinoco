@@ -12,9 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="45ca4c51-1e72-4b4e-9637-f1ea4a2d495f" name="Default Changelist" comment="Utlisation de sessionStorage pour faire passer les données de page en page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/confirmation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panier.html" beforeDir="false" afterPath="$PROJECT_DIR$/panier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/produit.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/produit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/produit.html" beforeDir="false" afterPath="$PROJECT_DIR$/produit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +91,14 @@
       <workItem from="1615032889692" duration="3631000" />
       <workItem from="1615044760791" duration="1199000" />
       <workItem from="1615108631681" duration="156000" />
-      <workItem from="1615111523971" duration="167000" />
+      <workItem from="1615111523971" duration="312000" />
+      <workItem from="1615120749979" duration="11000" />
+      <workItem from="1615225320395" duration="1305000" />
+      <workItem from="1615227132762" duration="3609000" />
+      <workItem from="1615236058652" duration="1859000" />
+      <workItem from="1615238541807" duration="2363000" />
+      <workItem from="1615313244645" duration="3349000" />
+      <workItem from="1615485016560" duration="6239000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -240,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615050034909</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="W3C">
+      <created>1615111747229</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1615111747229</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +294,7 @@
     <MESSAGE value="Correction du bug sur la valeur de la commande sur la page de confirmation" />
     <MESSAGE value="Vérifiaction des champs dans le formulaire panier" />
     <MESSAGE value="Correction RegExp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction RegExp" />
+    <MESSAGE value="W3C" />
+    <option name="LAST_COMMIT_MESSAGE" value="W3C" />
   </component>
 </project>

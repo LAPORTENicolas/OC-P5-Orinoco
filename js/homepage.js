@@ -8,7 +8,7 @@ async function getJson(url) {
     // Execute la req a l'API
     let reponse = await fetch(url);
 
-    // Vérifie si la req a aboutie correctement ou retourne une érreur
+    // Vérifie si la req a aboutie correctement ou retourne une erreur
     if (reponse.ok){
         // Execute la fonctioon d'affichage avec pour argument le json de la req
         return print(await reponse.json());

@@ -9,7 +9,6 @@ fetch('http://localhost:3000/api/teddies/' + id).then(function (reponse) {
     if (reponse.ok) {
         reponse.json().then(function(json) {
             affichageProduit(json)
-            console.log(json);
         });
     } else {
         document.location.href='/allApp/OC-P5-Orinoco/';
@@ -62,18 +61,24 @@ function affichageProduit(json){
         selectInput.appendChild(tmpOption);
     }
 
-    let boutton = document.createElement('button');
-    let textBoutton = document.createTextNode('Ajouter au panier');
+    let boutton         = document.createElement('button');
+    let textBoutton     = document.createTextNode('Ajouter au panier');
     boutton.appendChild(textBoutton);
-    boutton.className = 'btn btn-bleu';
-    boutton.onclick = function (){ acheter(id, json); };
+    boutton.className   = 'btn btn-bleu';
+    boutton.id          = 'acheter';
     divText.appendChild(boutton);
+
+    let btn = document.getElementById('acheter');
+    btn.addEventListener('click', function (){
+        acheter(JSON.stringify(json));
+    })
 }
 
-function acheter(id, produit) {
+function acheter(object) {
+    let quant   = document.getElementById('quantite').value;
     let select  = document.getElementById('select-input');
-    let quant   = parseInt(document.getElementById('quantite').value);
     let couleur = select.value;
+    let produit = JSON.parse(object);
 
     if (quant <= 0) {
         console.log('Quantité invalide');
@@ -82,14 +87,14 @@ function acheter(id, produit) {
 
     for (let i in panier) {
         if (panier[i]._id === produit._id && panier[i].couleur === couleur) {
-            panier[i].quantite = panier[i].quantite + quant;
+            panier[i].quantite = parseInt(panier[i].quantite) + parseInt(quant);
+            console.log('couleur identique');
             enrPanier();
             return 0;
         }
     }
-
-    produit['quantite'] = quant;
-    produit['couleur']  = couleur;
+    produit.couleur     = couleur;
+    produit.quantite    = quant;
     panier.push(produit);
     enrPanier();
 }

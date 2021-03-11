@@ -35,11 +35,14 @@ header ul {
     display: flex;
 }
 
+header ul li {
+    list-style: none;
+    min-width: 100px;
+    margin: auto;
+}
+
 header ul a {
     color: black;
-    min-width: 100px;
-    list-style: none;
-    margin: auto;
 }
 
 button {
