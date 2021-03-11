@@ -8,11 +8,13 @@ panier = gestionPanier(panier);
 fetch('http://localhost:3000/api/teddies/' + id).then(function (reponse) {
     if (reponse.ok) {
         reponse.json().then(function(json) {
+            console.log(json);
             affichageProduit(json)
         });
     } else {
-        document.location.href='/allApp/OC-P5-Orinoco/';
+        document.location.href = 'index.html';
     }
+
 });
 
 

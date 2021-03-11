@@ -11,11 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45ca4c51-1e72-4b4e-9637-f1ea4a2d495f" name="Default Changelist" comment="Utlisation de sessionStorage pour faire passer les données de page en page">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/confirmation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/produit.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/produit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produit.html" beforeDir="false" afterPath="$PROJECT_DIR$/produit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +63,19 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -98,7 +110,7 @@
       <workItem from="1615236058652" duration="1859000" />
       <workItem from="1615238541807" duration="2363000" />
       <workItem from="1615313244645" duration="3349000" />
-      <workItem from="1615485016560" duration="6239000" />
+      <workItem from="1615485016560" duration="8821000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -254,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615111747229</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Correctif">
+      <created>1615494956673</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1615494956673</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +314,7 @@
     <MESSAGE value="Vérifiaction des champs dans le formulaire panier" />
     <MESSAGE value="Correction RegExp" />
     <MESSAGE value="W3C" />
-    <option name="LAST_COMMIT_MESSAGE" value="W3C" />
+    <MESSAGE value="Correctif" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correctif" />
   </component>
 </project>
