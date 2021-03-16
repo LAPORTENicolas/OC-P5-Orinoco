@@ -9,6 +9,7 @@ function supprimer(id) {
             //let tmpTr = document.getElementById('tr-panier' + i);
             //tmpTr.remove();
 
+            // Si le panier est enregistrer on le supprime
             if (localStorage.getItem('panier')){
                 localStorage.removeItem('panier');
             }
@@ -86,6 +87,7 @@ function affichagePanier() {
     for (let i in panier){
         if (panier[i] != null) {
 
+            // On convertie le prix en Euro, puis on multiplie le prix unitaire par la quantité
             prix = prix  + ((panier[i].price/100)*panier[i].quantite);
             let panierTr2 = document.createElement('tr');
             panierTr2.id = 'tr-panier' + i;
@@ -128,6 +130,7 @@ function affichagePanier() {
 
     }
 
+    // Conversion du prix en €
     let textPrixTotal       = document.createTextNode(new Intl.NumberFormat('fr-FR', {style: 'currency', currency: 'EUR'}).format(prix));
     prixTotalS              = textPrixTotal;
     prixTotal.appendChild(textPrixTotal);
@@ -193,6 +196,7 @@ async function envoye(data) {
     // Stocke le reslutat de la req fetch, Fetch envoye une requete a l'API en post contenant du JSON transformé en "string"
 
     let reponse = await fetch('http://localhost:3000/api/teddies/order', {
+        // Parametrage de la reponse
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -225,6 +229,7 @@ function validationFormulaire(){
     let email               = document.getElementById('Email').value;
     let erreur              = 0;
 
+    // Vérification d'un champs
     if (patPrenom.test(nom) === false){
         erreur++;
         if (document.getElementById('erreur-nom') === null){
@@ -236,6 +241,7 @@ function validationFormulaire(){
             document.getElementById('Nom').className = 'erreur';
         }
     } else {
+        // Si en erreur a été affiché, et quelle corrigé on la supprime
         if (document.getElementById('erreur-nom')){
             document.getElementById('Nom').classList = '';
             document.getElementById('conteneur-nom').removeChild(document.getElementById('erreur-nom'));
@@ -282,6 +288,7 @@ function validationFormulaire(){
         }
     }
 
+    // Return tru si il n'y a pas d"érreur
     if (erreur === 0){
         return true;
     } else {
@@ -312,6 +319,7 @@ else {
             for (let i in panier) {
                 tmpID.push(panier[i]._id);
             }
+            // On configure le body de la req Avec contact qui contient l'user et products qui contient les ID des produits dans le panier
             envoye({
                     contact: {
                         firstName: document.getElementById('Nom').value,

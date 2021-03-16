@@ -6,6 +6,7 @@ let panier  = [];
 panier = gestionPanier(panier);
 
 fetch('http://localhost:3000/api/teddies/' + id).then(function (reponse) {
+    // On vérifie que l'id demandé existe sinon on redirige l'user sur la page d'accueil
     if (reponse.ok) {
         reponse.json().then(function(json) {
             console.log(json);
@@ -82,19 +83,22 @@ function acheter(object) {
     let couleur = select.value;
     let produit = JSON.parse(object);
 
+    // Si la quantité est inférieux ou égale a 1 on n'ajoute aucun produit au panier
     if (quant <= 0) {
         console.log('Quantité invalide');
         return 1;
     }
 
     for (let i in panier) {
+        // Si l'un des éléments du panier correspond au produit qui est ajouté au pnier
         if (panier[i]._id === produit._id && panier[i].couleur === couleur) {
+            // On augemente la quatité du produit dans le panier puis, on l'enregistre
             panier[i].quantite = parseInt(panier[i].quantite) + parseInt(quant);
-            console.log('couleur identique');
             enrPanier();
             return 0;
         }
     }
+    // Si le produit n'est pas déja dans le panier on l'ajoute
     produit.couleur     = couleur;
     produit.quantite    = quant;
     panier.push(produit);

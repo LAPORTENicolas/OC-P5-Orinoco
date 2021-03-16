@@ -42,6 +42,6 @@ if (localStorage.getItem('confirmation')) {
     divPara.appendChild(paraPrix);
     supressionDuPanier();
 } else {
-    // S'il n'y a pas de commande ou de pris total, redirige l'utilisateur vers la page des produits
+    // S'il n'y a pas de commande, redirige l'utilisateur vers la page des produits
     console.log('erreur');
 }
