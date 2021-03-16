@@ -1,4 +1,4 @@
-// GestionPanier permet de sauvegarder le panier dans localStorage
+// GestionPanier permet de recupere le panier dans localStorage
 function gestionPanier(){
     // Vérifie si un panier est déjà enregistrer
     if (localStorage.getItem('panier')) {

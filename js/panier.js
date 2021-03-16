@@ -92,17 +92,21 @@ function affichagePanier() {
             let panierTr2 = document.createElement('tr');
             panierTr2.id = 'tr-panier' + i;
 
-            let tmpTd1 = document.createElement('td');
-            let tmpTd2 = document.createElement('td');
-            let tmpTd3 = document.createElement('td');
-            let tmpTd4 = document.createElement('td');
-            let tmpTd5 = document.createElement('td');
+            let tmpTd1      = document.createElement('td');
+            let tmpTd2      = document.createElement('td');
+            let tmpTd3      = document.createElement('td');
+            let tmpTd4      = document.createElement('td');
+            let tmpTd5      = document.createElement('td');
+            let tmpLink     = document.createElement('a');
 
-            let tmpTextTd1 = document.createTextNode(panier[i].name);
-            let tmpTextTd2 = document.createTextNode(panier[i].price.toString().replace('00', '.00€'));
-            let tmpTextTd3 = document.createTextNode(panier[i].quantite);
-            let tmpTextTd4 = document.createTextNode(panier[i].colors[panier[i].couleur]);
-            let tmpTextTd5 = document.createTextNode("Supprimer");
+            tmpLink.href    = 'produit.html?produitID=' + panier[i]._id;
+            let textLien    = document.createTextNode(panier[i].name);
+            tmpLink.appendChild(textLien);
+
+            let tmpTextTd2  = document.createTextNode(panier[i].price.toString().replace('00', '.00€'));
+            let tmpTextTd3  = document.createTextNode(panier[i].quantite);
+            let tmpTextTd4  = document.createTextNode(panier[i].colors[panier[i].couleur]);
+            let tmpTextTd5  = document.createTextNode("Supprimer");
 
             let tmpBouton = document.createElement('button');
             tmpBouton.className = 'btn btn-red';
@@ -111,7 +115,7 @@ function affichagePanier() {
             }
 
 
-            tmpTd1.appendChild(tmpTextTd1);
+            tmpTd1.appendChild(tmpLink);
             tmpTd2.appendChild(tmpTextTd2);
             tmpTd3.appendChild(tmpTextTd3);
             tmpTd4.appendChild(tmpTextTd4);
