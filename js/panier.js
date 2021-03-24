@@ -151,7 +151,8 @@ function affichagePanier() {
 // Permet d'affiché le formulaire
 function affichageFormualire() {
     let champs                          = ['Nom', 'Prenom', 'Adresse', 'Ville', 'Email']
-
+    let champ                           = getChamps();
+console.log(champ[0].id);
     let formulaireConteneur             = document.getElementById('formulaire');
     formulaireConteneur.className       = 'formulaire';
 
@@ -169,22 +170,22 @@ function affichageFormualire() {
 
     //formulaireConteneur.appendChild(formulaireForm);
 
-    for (let i in champs) {
+    for (let i in champ) {
         let tmpDivConteneur             = document.createElement('div');
         tmpDivConteneur.className       = 'input-conteneur';
-        tmpDivConteneur.id              = 'conteneur-' + champs[i];
+        tmpDivConteneur.id              = 'conteneur-' + champ[i].id;
 
         let tmpLabel                    = document.createElement('label');
         let tmpLabelText                = document.createTextNode(champs[i] + ':');
-        tmpLabel.htmlFor                = champs[i];
+        tmpLabel.htmlFor                = champ[i].id;
         tmpLabel.appendChild(tmpLabelText);
 
         let tmpInput                    = document.createElement('input');
-        tmpInput.type                   = 'text';
-        tmpInput.name                   = champs[i];
-        tmpInput.placeholder            = champs[i];
-        tmpInput.id                     = champs[i];
-        tmpInput.value                  = 'a';
+        tmpInput.type                   = champ[i].type;
+        tmpInput.name                   = champ[i].name;
+        tmpInput.placeholder            = champ[i].placeholder;
+        tmpInput.id                     = champ[i].id;
+        tmpInput.value                  = champ[i].value;
         formulaireConteneur.appendChild(tmpDivConteneur);
         tmpDivConteneur.appendChild(tmpLabel);
         tmpDivConteneur.appendChild(tmpInput);
@@ -225,85 +226,91 @@ async function envoye(data) {
 
 // Vérification du formulaire
 function validationFormulaire(){
-    const patPrenom             = /^([a-zA-Z0-9-]+)$/
+    //const patPrenom             =
     const patAdresse            = /^([a-zA-Z0-9- ]+)$/
     const patEmail              = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
 
-    const prenom                = document.getElementById('Prenom').value;
+    const champs                = getChamps();
+
+    //const prenom                = document.getElementById('Prenom').value;
     const nom                   = document.getElementById('Nom').value;
     const adresse               = document.getElementById('Adresse').value;
     const ville                 = document.getElementById('Ville').value;
     const email                 = document.getElementById('Email').value;
     let erreur                  = 0;
 
+    for (let i in champs) {
+        const tmpChamp          = document.getElementById(champs[i].id).value;
+        const tmpRegExp         = new RegExp(champs[i].reqExp, 'i');
+        if (tmpRegExp.test(tmpChamp) === false){
+            if (document.getElementById('err-' + champs[i].name) === null){
+                const cntChamp      = document.getElementById('conteneur-' + champs[i].id);
+                const cntErr        = document.createElement('err-cnt' + champs[i].name);
 
-    /*
-    // Vérification d'un champs
-    if (patPrenom.test(nom) === false){
-        erreur++;
-        if (document.getElementById('erreur-nom') === null){
-            const tmpConteneur    = document.getElementById('conteneur-Nom');
-            const tmpPrenom       = document.createElement('span');
-            tmpPrenom.id        = 'erreur-nom';
-            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
-            tmpConteneur.appendChild(tmpPrenom);
-            document.getElementById('Nom').className = 'erreur';
-        }
-    } else {
-        // Si en erreur a été affiché, et quelle corrigé on la supprime
-        if (document.getElementById('erreur-nom')){
-            document.getElementById('Nom').classList = '';
-            document.getElementById('conteneur-nom').removeChild(document.getElementById('erreur-nom'));
-        }
-    }if (patPrenom.test(prenom) === false){
-        erreur++;
-        if (document.getElementById('erreur-prenom') === null){
-            const tmpConteneur    = document.getElementById('conteneur-Prenom');
-            const tmpPrenom       = document.createElement('span');
-            tmpPrenom.id        = 'erreur-prenom';
-            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
-            tmpConteneur.appendChild(tmpPrenom);
-            document.getElementById('Prenom').className = 'erreur';
-        }
-    }if (patAdresse.test(adresse) === false){
-        erreur++;
-        if (document.getElementById('erreur-adresse') === null){
-            const tmpConteneur    = document.getElementById('conteneur-Adresse');
-            const tmpPrenom       = document.createElement('span');
-            tmpPrenom.id        = 'erreur-adresse';
-            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
-            tmpConteneur.appendChild(tmpPrenom);
-            document.getElementById('Adresse').className = 'erreur';
-        }
-    }if (patPrenom.test(ville) === false){
-        erreur++;
-        if (document.getElementById('erreur-ville') === null){
-            const tmpConteneur    = document.getElementById('conteneur-Ville');
-            const tmpPrenom       = document.createElement('span');
-            tmpPrenom.id        = 'erreur-ville';
-            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
-            tmpConteneur.appendChild(tmpPrenom);
-            document.getElementById('Ville').className = 'erreur';
-        }
-    }if (patEmail.test(email) === false){
-        erreur++;
-        if (document.getElementById('erreur-email') === null){
-            const tmpConteneur    = document.getElementById('conteneur-Email');
-            const tmpPrenom       = document.createElement('span');
-            tmpPrenom.id        = 'erreur-email';
-            tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
-            tmpConteneur.appendChild(tmpPrenom);
-            document.getElementById('Email').className = 'erreur';
+                cntErr.appendChild(document.createTextNode('Le champ ' + champs[i].placeholder + ' n\'est pas correct'));
+                cntErr.id           = 'err-' + champs[i].name;
+                cntChamp.appendChild(cntErr);
+                document.getElementById(champs[i].id).className = 'erreur';
+            }
+            erreur++;
+        } else {
+            if (document.getElementById('err-' + champs[i].name) !== null){
+                document.getElementById('conteneur-' + champs[i].id).removeChild(document.getElementById('err-' + champs[i].name));
+                document.getElementById(champs[i].id).classList.remove('erreur');
+            }
         }
     }
-
     // Return tru si il n'y a pas d"érreur
     if (erreur === 0){
         return true;
     } else {
         return false;
     }
-    */
+}
+
+function getChamps(){
+    return {
+        '0': {
+            'type': 'text',
+            'value': 'Nom',
+            'placeholder': 'Nom',
+            'name': 'nom',
+            'id': 'Nom',
+            'reqExp': '^([a-zA-Z0-9-]+)$'
+        },
+        '1': {
+            'type': 'text',
+            'value': 'Prenom',
+            'placeholder': 'Prenom',
+            'name': 'prenom',
+            'id': 'Prenom',
+            'reqExp': '^([a-zA-Z0-9-]+)$'
+        },
+        '2': {
+            'type': 'text',
+            'value': 'Adresse',
+            'placeholder': 'Adresse',
+            'name': 'adresse',
+            'id': 'Adresse',
+            'reqExp': '^([a-zA-Z0-9- ]+)$'
+        },
+        '3': {
+            'type': 'text',
+            'value': 'Ville',
+            'placeholder': 'Ville',
+            'name': 'ville',
+            'id': 'Ville',
+            'reqExp': '^([a-zA-Z0-9- ]+)$'
+        },
+        '4': {
+            'type': 'email',
+            'value': 'Email@email.com',
+            'placeholder': 'Email',
+            'name': 'email',
+            'id': 'Email',
+            'reqExp': '^[0-9A-Za-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$'
+        }
+    }
 }
 
 // Vérifie si le panier n'est pas vide avant d'affiché la page sinon redirection sur la page des produits

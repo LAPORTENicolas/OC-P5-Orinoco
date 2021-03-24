@@ -12,11 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="408af1f8-d3a1-4e26-910d-06611481d71a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/confirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/confirmation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/homepage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/panier.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/panier.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/produit.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/produit.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +121,7 @@
       <workItem from="1615894055206" duration="625000" />
       <workItem from="1616495079344" duration="4261000" />
       <workItem from="1616513145420" duration="49000" />
-      <workItem from="1616605855461" duration="8240000" />
+      <workItem from="1616605855461" duration="11600000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -302,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616620070015</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Utilisation des constantes">
+      <created>1616621256752</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1616621256752</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +324,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fichiers HTML/CSS de base" />
     <MESSAGE value="Ajout du repository JWPD5 OpenClassrooms-Student-Center" />
     <MESSAGE value="Utilisation de l'api pour récupérer les données" />
     <MESSAGE value="Affichage des données de l'API" />
@@ -346,6 +348,7 @@
     <MESSAGE value="Correctif" />
     <MESSAGE value="Readme" />
     <MESSAGE value="Responsive Mobile Tablet Desktop + Animation ajout au panier d'un article" />
-    <option name="LAST_COMMIT_MESSAGE" value="Responsive Mobile Tablet Desktop + Animation ajout au panier d'un article" />
+    <MESSAGE value="Utilisation des constantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Utilisation des constantes" />
   </component>
 </project>
