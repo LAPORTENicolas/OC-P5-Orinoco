@@ -1,7 +1,7 @@
 let panier      = [];
-let listProduit = document.getElementById('list-produits');
+const listProduit = document.getElementById('list-produits');
 const port     = '3001';
-let url         = 'http://localhost:' + port + '/api/teddies';
+const url         = 'http://localhost:' + port + '/api/teddies';
 
 panier = gestionPanier(panier);
 
@@ -20,30 +20,30 @@ fetch(url)
 function print(produits) {
     // Boucle pour affiché chaque produit
     for (let i in produits){
-        let produitConteneur        = document.createElement('div');
+        const produitConteneur        = document.createElement('div');
         produitConteneur.className  = 'produit';
 
-        let textConteneur           = document.createElement('div');
+        const textConteneur           = document.createElement('div');
         textConteneur.className     = 'text-conteneur';
 
-        let btnConteneur            = document.createElement('div');
+        const btnConteneur            = document.createElement('div');
 
-        let imgProduit              = document.createElement('img')
-        let produitTitre            = document.createElement('h3');
-        let produitPara             = document.createElement('p');
-        let produitPrix             = document.createElement('span');
-        let produitBouton           = document.createElement('a');
-        let produitSelection        = document.createElement('select');
+        const imgProduit              = document.createElement('img')
+        const produitTitre            = document.createElement('h3');
+        const produitPara             = document.createElement('p');
+        const produitPrix             = document.createElement('span');
+        const produitBouton           = document.createElement('a');
+        const produitSelection        = document.createElement('select');
 
         imgProduit.src              = produits[i].imageUrl;
 
         produitBouton.className     = 'btn btn-bleu';
         produitBouton.href          = 'produit.html?produitID=' + produits[i]._id;
 
-        let textTitre               = document.createTextNode(produits[i].name);
-        let textPara                = document.createTextNode(produits[i].description);
-        let textPrix                = document.createTextNode(produits[i].price.toString().replace('00', '.00€'));
-        let textBoutton             = document.createTextNode('Plus de détails');
+        const textTitre               = document.createTextNode(produits[i].name);
+        const textPara                = document.createTextNode(produits[i].description);
+        const textPrix                = document.createTextNode(produits[i].price.toString().replace('00', '.00€'));
+        const textBoutton             = document.createTextNode('Plus de détails');
 
         produitTitre.appendChild(textTitre);
         produitPara.appendChild(textPara);

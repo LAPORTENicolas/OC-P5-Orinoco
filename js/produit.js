@@ -1,5 +1,5 @@
 // Récuperation de l'id
-let id      = window.location.search.replace('?produitID=', '');
+const id      = window.location.search.replace('?produitID=', '');
 let panier  = [];
 const $port = '3001';
 
@@ -26,33 +26,33 @@ fetch('http://localhost:' + $port + '/api/teddies/' + id)
 
 
 function affichageProduit(json){
-    let conteneur = document.getElementById('conteneur-produit');
+    const conteneur = document.getElementById('conteneur-produit');
 
-    let titre = document.createElement('h2');
-    let textTitre = document.createTextNode(json.name);
+    const titre = document.createElement('h2');
+    const textTitre = document.createTextNode(json.name);
     titre.appendChild(textTitre);
 
-    let img = document.createElement('img');
+    const img = document.createElement('img');
     img.src = json.imageUrl;
     img.alt = json.name;
 
-    let divText = document.createElement('div');
+    const divText = document.createElement('div');
     divText.className = 'text-produit';
 
-    let sousTitre = document.createElement('h2');
+    const sousTitre = document.createElement('h2');
     sousTitre.appendChild(textTitre);
 
-    let description = document.createElement('p');
-    let textDescription = document.createTextNode(json.description);
+    const description = document.createElement('p');
+    const textDescription = document.createTextNode(json.description);
     description.appendChild(textDescription);
 
-    let inputQuatite = document.createElement('input');
+    const inputQuatite = document.createElement('input');
     inputQuatite.type = 'number';
     inputQuatite.min    = 1;
     inputQuatite.value  = 1;
     inputQuatite.id     = 'quantite';
 
-    let selectInput = document.createElement('select');
+    const selectInput = document.createElement('select');
     selectInput.id = 'select-input';
 
     conteneur.appendChild(img);
@@ -63,29 +63,29 @@ function affichageProduit(json){
     divText.appendChild(selectInput);
 
     for (let i in json.colors) {
-        let tmpOption       = document.createElement('option');
-        let tmpOptionText   = document.createTextNode(json.colors[i]);
+        const tmpOption       = document.createElement('option');
+        const tmpOptionText   = document.createTextNode(json.colors[i]);
         tmpOption.value     = i;
         tmpOption.appendChild(tmpOptionText);
         selectInput.appendChild(tmpOption);
     }
 
-    let boutton         = document.createElement('button');
-    let textBoutton     = document.createTextNode('Ajouter au panier');
+    const boutton         = document.createElement('button');
+    const textBoutton     = document.createTextNode('Ajouter au panier');
     boutton.appendChild(textBoutton);
     boutton.className   = 'btn btn-bleu';
     boutton.id          = 'acheter';
     divText.appendChild(boutton);
 
-    let btn = document.getElementById('acheter');
+    const btn = document.getElementById('acheter');
     btn.addEventListener('click',  () => acheter(JSON.stringify(json)))
 }
 
 function acheter(object) {
-    let quant   = document.getElementById('quantite').value;
-    let select  = document.getElementById('select-input');
-    let couleur = select.value;
-    let produit = JSON.parse(object);
+    const quant   = document.getElementById('quantite').value;
+    const select  = document.getElementById('select-input');
+    const couleur = select.value;
+    const produit = JSON.parse(object);
 
     // Si la quantité est inférieux ou égale a 1 on n'ajoute aucun produit au panier
     if (quant <= 0) {
@@ -107,12 +107,15 @@ function acheter(object) {
     produit.couleur     = couleur;
     produit.quantite    = quant;
     panier.push(produit);
-    enrPanier();
-    onclick(quant);
+    enrPanier()
+        .then( () => {
+            console.log(localStorage.getItem('panier'));
+            onclick(quant)
+        });
 }
 
 function onclick(quant){
-    let doc         = document.getElementById('acheter');
+    const doc         = document.getElementById('acheter');
     doc.classList.add('anime');
     doc.textContent = 'Ajouté ! +' + quant;
     setTimeout(() => {
@@ -121,7 +124,7 @@ function onclick(quant){
         }, 2000)
 }
 
-function enrPanier(){
+async function enrPanier(){
     if (localStorage.getItem('panier')) {
         localStorage.removeItem('panier');
     }

@@ -10,18 +10,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="408af1f8-d3a1-4e26-910d-06611481d71a" name="Default Changelist" comment="Readme">
+    <list default="true" id="408af1f8-d3a1-4e26-910d-06611481d71a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JWDP5/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/JWDP5/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/confirmation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/confirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/confirmation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/homepage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/panier.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/panier.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/produit.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/produit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panier.html" beforeDir="false" afterPath="$PROJECT_DIR$/panier.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produit.html" beforeDir="false" afterPath="$PROJECT_DIR$/produit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +125,7 @@
       <workItem from="1615894055206" duration="625000" />
       <workItem from="1616495079344" duration="4261000" />
       <workItem from="1616513145420" duration="49000" />
-      <workItem from="1616605855461" duration="6995000" />
+      <workItem from="1616605855461" duration="8240000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>
@@ -300,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615898007688</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Responsive Mobile Tablet Desktop + Animation ajout au panier d'un article">
+      <created>1616620070015</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1616620070015</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,6 +345,7 @@
     <MESSAGE value="W3C" />
     <MESSAGE value="Correctif" />
     <MESSAGE value="Readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Readme" />
+    <MESSAGE value="Responsive Mobile Tablet Desktop + Animation ajout au panier d'un article" />
+    <option name="LAST_COMMIT_MESSAGE" value="Responsive Mobile Tablet Desktop + Animation ajout au panier d'un article" />
   </component>
 </project>

@@ -28,51 +28,51 @@ function supprimer(id) {
 // Permet d'affiché le panier
 function affichagePanier() {
     let prix                    = 0;
-    let panierConteneur         = document.getElementById('conteneur-panier');
-    let panierTableau           = document.createElement('table');
-    let panierThead             = document.createElement('thead');
-    let panierTr                = document.createElement('tr');
+    const panierConteneur         = document.getElementById('conteneur-panier');
+    const panierTableau           = document.createElement('table');
+    const panierThead             = document.createElement('thead');
+    const panierTr                = document.createElement('tr');
 
-    let panierTh1               = document.createElement('th');
-    let textPanierTh1           = document.createTextNode('Nom');
+    const panierTh1               = document.createElement('th');
+    const textPanierTh1           = document.createTextNode('Nom');
     panierTh1.className         = 'th-1';
     panierTh1.appendChild(textPanierTh1);
 
-    let panierTh2               = document.createElement('th');
-    let textPanierTh2           = document.createTextNode('Prix unitaire');
+    const panierTh2               = document.createElement('th');
+    const textPanierTh2           = document.createTextNode('Prix unitaire');
     panierTh2.className         = 'th-2';
     panierTh2.appendChild(textPanierTh2);
 
-    let panierTh3               = document.createElement('th');
-    let textPanierTh3           = document.createTextNode('Quantité');
+    const panierTh3               = document.createElement('th');
+    const textPanierTh3           = document.createTextNode('Quantité');
     panierTh3.className         = 'th-3';
     panierTh3.appendChild(textPanierTh3);
 
-    let panierTh4               = document.createElement('th');
-    let textPanierTh4           = document.createTextNode('Couleur');
+    const panierTh4               = document.createElement('th');
+    const textPanierTh4           = document.createTextNode('Couleur');
     panierTh4.className         = 'th-4';
     panierTh4.appendChild(textPanierTh4);
 
-    let panierTh5               = document.createElement('th');
-    let textPanierTh5           = document.createTextNode('Supprimer');
+    const panierTh5               = document.createElement('th');
+    const textPanierTh5           = document.createTextNode('Supprimer');
     panierTh4.className         = 'th-4';
     panierTh5.appendChild(textPanierTh5);
 
-    let panierTbody             = document.createElement('tbody');
-    let panierBouton            = document.createElement('button');
+    const panierTbody             = document.createElement('tbody');
+    const panierBouton            = document.createElement('button');
     panierBouton.className      = 'btn btn-red';
 
-    let prixTotalTr1            = document.createElement('td');
-    let prixTotalTr2            = document.createElement('td');
-    let prixTotalTr3            = document.createElement('td');
+    const prixTotalTr1            = document.createElement('td');
+    const prixTotalTr2            = document.createElement('td');
+    const prixTotalTr3            = document.createElement('td');
 
-    let prixTotalConteneur  = document.createElement('tr');
+    const prixTotalConteneur  = document.createElement('tr');
 
-    let prixTotalLegende    = document.createElement('td');
-    let textLegende         = document.createTextNode('Prix total:');
+    const prixTotalLegende    = document.createElement('td');
+    const textLegende         = document.createTextNode('Prix total:');
     prixTotalLegende.appendChild(textLegende);
 
-    let prixTotal           = document.createElement('td');
+    const prixTotal           = document.createElement('td');
 
     panierConteneur.appendChild(panierTableau);
     panierTableau.appendChild(panierThead);
@@ -90,26 +90,26 @@ function affichagePanier() {
 
             // On convertie le prix en Euro, puis on multiplie le prix unitaire par la quantité
             prix = prix  + ((panier[i].price/100)*panier[i].quantite);
-            let panierTr2 = document.createElement('tr');
+            const panierTr2 = document.createElement('tr');
             panierTr2.id = 'tr-panier' + i;
 
-            let tmpTd1      = document.createElement('td');
-            let tmpTd2      = document.createElement('td');
-            let tmpTd3      = document.createElement('td');
-            let tmpTd4      = document.createElement('td');
-            let tmpTd5      = document.createElement('td');
-            let tmpLink     = document.createElement('a');
+            const tmpTd1      = document.createElement('td');
+            const tmpTd2      = document.createElement('td');
+            const tmpTd3      = document.createElement('td');
+            const tmpTd4      = document.createElement('td');
+            const tmpTd5      = document.createElement('td');
+            const tmpLink     = document.createElement('a');
 
             tmpLink.href    = 'produit.html?produitID=' + panier[i]._id;
-            let textLien    = document.createTextNode(panier[i].name);
+            const textLien    = document.createTextNode(panier[i].name);
             tmpLink.appendChild(textLien);
 
-            let tmpTextTd2  = document.createTextNode(panier[i].price.toString().replace('00', '.00€'));
-            let tmpTextTd3  = document.createTextNode(panier[i].quantite);
-            let tmpTextTd4  = document.createTextNode(panier[i].colors[panier[i].couleur]);
-            let tmpTextTd5  = document.createTextNode("Supprimer");
+            const tmpTextTd2  = document.createTextNode(panier[i].price.toString().replace('00', '.00€'));
+            const tmpTextTd3  = document.createTextNode(panier[i].quantite);
+            const tmpTextTd4  = document.createTextNode(panier[i].colors[panier[i].couleur]);
+            const tmpTextTd5  = document.createTextNode("Supprimer");
 
-            let tmpBouton = document.createElement('button');
+            const tmpBouton = document.createElement('button');
             tmpBouton.className = 'btn btn-red';
             tmpBouton.onclick = () => supprimer(i)
 
@@ -134,7 +134,7 @@ function affichagePanier() {
     }
 
     // Conversion du prix en €
-    let textPrixTotal       = document.createTextNode(new Intl.NumberFormat('fr-FR', {style: 'currency', currency: 'EUR'}).format(prix));
+    const textPrixTotal       = document.createTextNode(new Intl.NumberFormat('fr-FR', {style: 'currency', currency: 'EUR'}).format(prix));
     prixTotalS              = textPrixTotal;
     prixTotal.appendChild(textPrixTotal);
 
@@ -225,23 +225,25 @@ async function envoye(data) {
 
 // Vérification du formulaire
 function validationFormulaire(){
-    let patPrenom           = /^([a-zA-Z0-9-]+)$/
-    let patAdresse          = /^([a-zA-Z0-9- ]+)$/
-    let patEmail            = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
+    const patPrenom             = /^([a-zA-Z0-9-]+)$/
+    const patAdresse            = /^([a-zA-Z0-9- ]+)$/
+    const patEmail              = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
 
-    let prenom              = document.getElementById('Prenom').value;
-    let nom                 = document.getElementById('Nom').value;
-    let adresse             = document.getElementById('Adresse').value;
-    let ville               = document.getElementById('Ville').value;
-    let email               = document.getElementById('Email').value;
-    let erreur              = 0;
+    const prenom                = document.getElementById('Prenom').value;
+    const nom                   = document.getElementById('Nom').value;
+    const adresse               = document.getElementById('Adresse').value;
+    const ville                 = document.getElementById('Ville').value;
+    const email                 = document.getElementById('Email').value;
+    let erreur                  = 0;
 
+
+    /*
     // Vérification d'un champs
     if (patPrenom.test(nom) === false){
         erreur++;
         if (document.getElementById('erreur-nom') === null){
-            let tmpConteneur    = document.getElementById('conteneur-Nom');
-            let tmpPrenom       = document.createElement('span');
+            const tmpConteneur    = document.getElementById('conteneur-Nom');
+            const tmpPrenom       = document.createElement('span');
             tmpPrenom.id        = 'erreur-nom';
             tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
             tmpConteneur.appendChild(tmpPrenom);
@@ -256,8 +258,8 @@ function validationFormulaire(){
     }if (patPrenom.test(prenom) === false){
         erreur++;
         if (document.getElementById('erreur-prenom') === null){
-            let tmpConteneur    = document.getElementById('conteneur-Prenom');
-            let tmpPrenom       = document.createElement('span');
+            const tmpConteneur    = document.getElementById('conteneur-Prenom');
+            const tmpPrenom       = document.createElement('span');
             tmpPrenom.id        = 'erreur-prenom';
             tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
             tmpConteneur.appendChild(tmpPrenom);
@@ -266,8 +268,8 @@ function validationFormulaire(){
     }if (patAdresse.test(adresse) === false){
         erreur++;
         if (document.getElementById('erreur-adresse') === null){
-            let tmpConteneur    = document.getElementById('conteneur-Adresse');
-            let tmpPrenom       = document.createElement('span');
+            const tmpConteneur    = document.getElementById('conteneur-Adresse');
+            const tmpPrenom       = document.createElement('span');
             tmpPrenom.id        = 'erreur-adresse';
             tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
             tmpConteneur.appendChild(tmpPrenom);
@@ -276,8 +278,8 @@ function validationFormulaire(){
     }if (patPrenom.test(ville) === false){
         erreur++;
         if (document.getElementById('erreur-ville') === null){
-            let tmpConteneur    = document.getElementById('conteneur-Ville');
-            let tmpPrenom       = document.createElement('span');
+            const tmpConteneur    = document.getElementById('conteneur-Ville');
+            const tmpPrenom       = document.createElement('span');
             tmpPrenom.id        = 'erreur-ville';
             tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
             tmpConteneur.appendChild(tmpPrenom);
@@ -286,8 +288,8 @@ function validationFormulaire(){
     }if (patEmail.test(email) === false){
         erreur++;
         if (document.getElementById('erreur-email') === null){
-            let tmpConteneur    = document.getElementById('conteneur-Email');
-            let tmpPrenom       = document.createElement('span');
+            const tmpConteneur    = document.getElementById('conteneur-Email');
+            const tmpPrenom       = document.createElement('span');
             tmpPrenom.id        = 'erreur-email';
             tmpPrenom.appendChild(document.createTextNode('Champ invalide'));
             tmpConteneur.appendChild(tmpPrenom);
@@ -301,19 +303,20 @@ function validationFormulaire(){
     } else {
         return false;
     }
+    */
 }
 
 // Vérifie si le panier n'est pas vide avant d'affiché la page sinon redirection sur la page des produits
 if (panier.length === 0 || panier === 'undefined') {
-    let div         = document.getElementById('conteneur-panier');
-    let titre       = document.createElement('h2');
-    let textTitre   = document.createTextNode('Panier vide');
+    const div         = document.getElementById('conteneur-panier');
+    const titre       = document.createElement('h2');
+    const textTitre   = document.createTextNode('Panier vide');
     titre.appendChild(textTitre);
 
     div.appendChild(titre);
 } else {
     affichagePanier();
-    let boutton = document.getElementById('payer');
+    const boutton = document.getElementById('payer');
 
     // Vérifie si le bouton est cliqué
     boutton.addEventListener('click', function (e){

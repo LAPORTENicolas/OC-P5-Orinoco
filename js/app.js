@@ -9,7 +9,7 @@ function gestionPanier(){
         for (let i in panier) {
             if (panier[i] === null) {
                 panier.splice(i, 1);
-                let tmpPanier = JSON.stringify(panier);
+                const tmpPanier = JSON.stringify(panier);
                 localStorage.setItem('panier', tmpPanier);
             }
         }
@@ -29,4 +29,19 @@ function supressionDuPanier(){
     }
     // Retourne le panier mis à jour
     return panier;
+}
+
+function supressionGlobal(){
+
+    // Vérifie si un panier est stocké
+    if (localStorage.getItem('panier')) {
+        // Vide le panier puis l'enregistre
+        panier = [];
+        localStorage.removeItem('panier');
+    }
+
+    if (localStorage.getItem('confirmation')) {
+        // Vide le panier puis l'enregistre
+        localStorage.removeItem('confirmation');
+    }
 }
