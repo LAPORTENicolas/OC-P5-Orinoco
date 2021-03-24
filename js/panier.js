@@ -1,5 +1,6 @@
 let panier                  = [];
 let prixTotalS              = 0;
+const port                 = '3001';
 panier                      = gestionPanier();
 
 // Permet de supprimer un élément du panier
@@ -197,19 +198,7 @@ function affichageFormualire() {
 async function envoye(data) {
     // Stocke le reslutat de la req fetch, Fetch envoye une requete a l'API en post contenant du JSON transformé en "string"
 
-
-    /*
-    let reponse = await fetch('http://localhost:3000/api/teddies/order', {
-        // Parametrage de la reponse
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
-     */
-
-    fetch('http://localhost:3000/api/teddies/order', {
+    fetch('http://localhost:' + port + '/api/teddies/order', {
         // Parametrage de la reponse
         method: 'POST',
         headers: {

@@ -1,11 +1,12 @@
 // Récuperation de l'id
 let id      = window.location.search.replace('?produitID=', '');
 let panier  = [];
+const $port = '3001';
 
 // Actualisation du panier
 panier = gestionPanier(panier);
 
-fetch('http://localhost:3000/api/teddies/' + id)
+fetch('http://localhost:' + $port + '/api/teddies/' + id)
     .then(res => {
         if (res.ok) {
             res.json()
@@ -98,6 +99,7 @@ function acheter(object) {
             // On augemente la quatité du produit dans le panier puis, on l'enregistre
             panier[i].quantite = parseInt(panier[i].quantite) + parseInt(quant);
             enrPanier();
+            onclick(quant);
             return 0;
         }
     }
@@ -106,6 +108,17 @@ function acheter(object) {
     produit.quantite    = quant;
     panier.push(produit);
     enrPanier();
+    onclick(quant);
+}
+
+function onclick(quant){
+    let doc         = document.getElementById('acheter');
+    doc.classList.add('anime');
+    doc.textContent = 'Ajouté ! +' + quant;
+    setTimeout(() => {
+        doc.textContent = 'Ajouter au panier';
+        doc.classList.remove('anime');
+        }, 2000)
 }
 
 function enrPanier(){

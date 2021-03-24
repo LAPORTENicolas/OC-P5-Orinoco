@@ -1,6 +1,7 @@
 let panier      = [];
 let listProduit = document.getElementById('list-produits');
-let url         = 'http://localhost:3000/api/teddies';
+const port     = '3001';
+let url         = 'http://localhost:' + port + '/api/teddies';
 
 panier = gestionPanier(panier);
 

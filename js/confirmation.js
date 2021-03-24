@@ -14,6 +14,7 @@ if (localStorage.getItem('confirmation')) {
     }
 
     let titre           = document.createElement('h1');
+    titre.className = 'mobile-titre';
     titre.appendChild(document.createTextNode("Confirmation de votre commande N°" + data.orderId))
     let soustitre       = document.createElement('h2');
     soustitre.appendChild(document.createTextNode('Merci pour votre commande'));
@@ -25,10 +26,10 @@ if (localStorage.getItem('confirmation')) {
     */
 
     let divPara         = document.createElement('div');
+    divPara.className   = 'mobile-confirmation';
 
     let paraId          = document.createElement('p');
     paraId.appendChild(document.createTextNode('Numéro de commande:' + data.orderId));
-    paraId.style        = 'min-width: 450px;text-align: center;';
 
     let paraPrix        = document.createElement('p');
     paraPrix.appendChild(document.createTextNode('Prix total de la commande:' + new Intl.NumberFormat('fr-FR', {style: 'currency', currency: 'EUR'}).format(prixTotal) ));

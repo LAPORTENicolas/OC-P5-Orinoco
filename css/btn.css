@@ -1,0 +1,17 @@
+.anime {
+    animation: 2s ease animeBoutton;
+}
+
+@keyframes animeBoutton {
+    from {
+        background-color: initial;
+    }
+
+    80% {
+        background-color: green;
+    }
+
+    to {
+        background-color: green;
+    }
+}
