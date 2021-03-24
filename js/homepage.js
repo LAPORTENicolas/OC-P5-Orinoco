@@ -61,3 +61,5 @@ function print(produits) {
         btnConteneur.appendChild(produitBouton);
     }
 }
+
+getEltPanier();

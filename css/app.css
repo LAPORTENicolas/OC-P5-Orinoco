@@ -87,7 +87,7 @@ button:hover {
 #list-produits {
     margin: 2% 10%;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     flex-wrap: wrap;
 }
 

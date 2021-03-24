@@ -45,3 +45,15 @@ function supressionGlobal(){
         localStorage.removeItem('confirmation');
     }
 }
+
+function getEltPanier(){
+    if (panier.length === 0){
+        document.getElementById('p-panier').appendChild(document.createTextNode('Panier'));
+    } else {
+        let produit = 0;
+        for (let i in panier){
+            produit = panier[i].quantite + produit;
+        }
+        document.getElementById('p-panier').appendChild(document.createTextNode('Panier (' + produit + ')'));
+    }
+}

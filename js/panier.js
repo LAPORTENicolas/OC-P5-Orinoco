@@ -351,3 +351,6 @@ if (panier.length === 0 || panier === 'undefined') {
         }
     })
 }
+
+console.log(panier);
+getEltPanier();

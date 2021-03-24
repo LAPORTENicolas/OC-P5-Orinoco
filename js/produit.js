@@ -1,7 +1,8 @@
 // Récuperation de l'id
-const id      = window.location.search.replace('?produitID=', '');
-let panier  = [];
-const $port = '3001';
+const id        = window.location.search.replace('?produitID=', '');
+let btnDisbale  = false;
+let panier      = [];
+const $port     = '3001';
 
 // Actualisation du panier
 panier = gestionPanier(panier);
@@ -78,7 +79,10 @@ function affichageProduit(json){
     divText.appendChild(boutton);
 
     const btn = document.getElementById('acheter');
-    btn.addEventListener('click',  () => acheter(JSON.stringify(json)))
+    btn.addEventListener('click',  () => {
+        if (btnDisbale === true) { return 0; }
+        acheter(JSON.stringify(json));
+    })
 }
 
 function acheter(object) {
@@ -118,9 +122,11 @@ function onclick(quant){
     const doc         = document.getElementById('acheter');
     doc.classList.add('anime');
     doc.textContent = 'Ajouté ! +' + quant;
+    btnDisbale      = true;
     setTimeout(() => {
         doc.textContent = 'Ajouter au panier';
         doc.classList.remove('anime');
+        btnDisbale      = false;
         }, 2000)
 }
 
@@ -131,3 +137,5 @@ async function enrPanier(){
     let tmpPanier = JSON.stringify(panier);
     localStorage.setItem('panier', tmpPanier);
 }
+
+getEltPanier();
