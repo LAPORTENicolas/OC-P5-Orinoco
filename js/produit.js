@@ -5,18 +5,23 @@ let panier  = [];
 // Actualisation du panier
 panier = gestionPanier(panier);
 
-fetch('http://localhost:3000/api/teddies/' + id).then(function (reponse) {
+fetch('http://localhost:3000/api/teddies/' + id)
+    .then(res => {
+        if (res.ok) {
+            res.json()
+                .then(data => affichageProduit(data))
+                .catch(err => console.error(err));
+        } else {
+            console.error('Impossible de charger l\'API', res.status,  ':', res.statusText);
+            document.location.href = 'index.html';
+        }
+    })
     // On vérifie que l'id demandé existe sinon on redirige l'user sur la page d'accueil
-    if (reponse.ok) {
-        reponse.json().then(function(json) {
-            console.log(json);
-            affichageProduit(json)
-        });
-    } else {
-        document.location.href = 'index.html';
-    }
+    .catch(err => {
+        console.error(err)
+        document.location.href  = 'index.html';
+    });
 
-});
 
 
 function affichageProduit(json){
@@ -72,9 +77,7 @@ function affichageProduit(json){
     divText.appendChild(boutton);
 
     let btn = document.getElementById('acheter');
-    btn.addEventListener('click', function (){
-        acheter(JSON.stringify(json));
-    })
+    btn.addEventListener('click',  () => acheter(JSON.stringify(json)))
 }
 
 function acheter(object) {

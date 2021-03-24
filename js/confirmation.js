@@ -43,5 +43,6 @@ if (localStorage.getItem('confirmation')) {
     supressionDuPanier();
 } else {
     // S'il n'y a pas de commande, redirige l'utilisateur vers la page des produits
+    location.href   = 'index.html';
     console.log('erreur');
 }

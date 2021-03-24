@@ -14,7 +14,6 @@ function gestionPanier(){
             }
         }
     }
-
     // Retourne le panier a jour
     return panier;
 }
@@ -28,7 +27,6 @@ function supressionDuPanier(){
         panier = [];
         localStorage.setItem('panier', JSON.stringify(panier));
     }
-
     // Retourne le panier mis à jour
     return panier;
 }

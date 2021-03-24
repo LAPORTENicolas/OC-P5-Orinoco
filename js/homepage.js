@@ -4,18 +4,16 @@ let url         = 'http://localhost:3000/api/teddies';
 
 panier = gestionPanier(panier);
 
-async function getJson(url) {
-    // Execute la req a l'API
-    let reponse = await fetch(url);
+fetch(url)
+    .then(res => {
+        if (res.ok){
+            res.json()
+                .then(data => print(data))
+                .catch(err => console.error(err));
+        } else { console.error('Impossible de charger l\'API', res.status, ':', res.statusText)}
+    })
+    .catch(err => console.error(err));
 
-    // Vérifie si la req a aboutie correctement ou retourne une erreur
-    if (reponse.ok){
-        // Execute la fonctioon d'affichage avec pour argument le json de la req
-        return print(await reponse.json());
-    } else {
-        console.log("Impossible de charger l'API, erreur", reponse.status, ':', reponse.statusText);
-    }
-}
 
 // Permet d'affiché les produits
 function print(produits) {
@@ -62,6 +60,3 @@ function print(produits) {
         btnConteneur.appendChild(produitBouton);
     }
 }
-
-// Affiche la page
-getJson(url);

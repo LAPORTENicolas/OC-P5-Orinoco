@@ -110,9 +110,7 @@ function affichagePanier() {
 
             let tmpBouton = document.createElement('button');
             tmpBouton.className = 'btn btn-red';
-            tmpBouton.onclick = function () {
-                supprimer(i);
-            }
+            tmpBouton.onclick = () => supprimer(i)
 
 
             tmpTd1.appendChild(tmpLink);
@@ -199,6 +197,8 @@ function affichageFormualire() {
 async function envoye(data) {
     // Stocke le reslutat de la req fetch, Fetch envoye une requete a l'API en post contenant du JSON transformé en "string"
 
+
+    /*
     let reponse = await fetch('http://localhost:3000/api/teddies/order', {
         // Parametrage de la reponse
         method: 'POST',
@@ -207,17 +207,31 @@ async function envoye(data) {
         },
         body: JSON.stringify(data)
     })
+     */
 
-    if (reponse.ok) {
-        // dataReponse récupere le json de la réponse de l'API
-        let dataReponse = await reponse.json();
-        // Enregistrement des données de la commande
-        localStorage.setItem('confirmation', JSON.stringify(dataReponse));
-        // Redicrection vers la page de confirmation
-        document.location.href = 'confirmation.html';
-    } else {
-        console.log('Erreur' + reponse.status + ':' + reponse.statusText);
-    }
+    fetch('http://localhost:3000/api/teddies/order', {
+        // Parametrage de la reponse
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify(data)})
+        .then(res => {
+            if (res.ok){
+                // dataReponse récupere le json de la réponse de l'API
+                res.json()
+                    .then(data => {
+                        // Enregistrement des données de la commande
+                        localStorage.setItem('confirmation', JSON.stringify(data));
+                        // Redicrection vers la page de confirmation
+                        document.location.href = 'confirmation.html';
+                    })
+                    .catch(err => console.error(err));
+            } else {
+                console.log('Erreur' + reponse.status + ':' + reponse.statusText);
+            }
+        })
+        .catch(err => console.error(err));
 }
 
 // Vérification du formulaire
@@ -308,14 +322,12 @@ if (panier.length === 0 || panier === 'undefined') {
     titre.appendChild(textTitre);
 
     div.appendChild(titre);
-}
-else {
+} else {
     affichagePanier();
     let boutton = document.getElementById('payer');
 
     // Vérifie si le bouton est cliqué
     boutton.addEventListener('click', function (e){
-        console.log(validationFormulaire());
         if (validationFormulaire()){
 
             // Création d'un tab temp qui contient les ID des art, Rempli avec for
