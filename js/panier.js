@@ -1,6 +1,6 @@
 let panier                  = [];
 let prixTotalS              = 0;
-const port                 = '3001';
+const port                 = '3000';
 panier                      = gestionPanier();
 
 // Permet de supprimer un élément du panier
@@ -86,7 +86,7 @@ function affichagePanier() {
 
 
     for (let i in panier){
-        if (panier[i] != null) {
+        if (panier[i] !== null) {
 
             // On convertie le prix en Euro, puis on multiplie le prix unitaire par la quantité
             prix = prix  + ((panier[i].price/100)*panier[i].quantite);

@@ -12,14 +12,10 @@
   <component name="ChangeListManager">
     <list default="true" id="408af1f8-d3a1-4e26-910d-06611481d71a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/confirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/confirmation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/homepage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/panier.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/panier.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/produit.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/produit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panier.html" beforeDir="false" afterPath="$PROJECT_DIR$/panier.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produit.html" beforeDir="false" afterPath="$PROJECT_DIR$/produit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,19 +71,6 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -129,6 +112,7 @@
       <workItem from="1616495079344" duration="4261000" />
       <workItem from="1616513145420" duration="49000" />
       <workItem from="1616605855461" duration="13307000" />
+      <workItem from="1616680739754" duration="87000" />
     </task>
     <task id="LOCAL-00001" summary="Fichiers HTML/CSS de base">
       <created>1614285115982</created>

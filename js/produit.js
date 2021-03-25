@@ -2,12 +2,12 @@
 const id        = window.location.search.replace('?produitID=', '');
 let btnDisbale  = false;
 let panier      = [];
-const $port     = '3001';
+const port     = '3000';
 
 // Actualisation du panier
 panier = gestionPanier(panier);
 
-fetch('http://localhost:' + $port + '/api/teddies/' + id)
+fetch('http://localhost:' + port + '/api/teddies/' + id)
     .then(res => {
         if (res.ok) {
             res.json()

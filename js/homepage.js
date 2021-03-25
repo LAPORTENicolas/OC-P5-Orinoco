@@ -1,6 +1,6 @@
 let panier      = [];
 const listProduit = document.getElementById('list-produits');
-const port     = '3001';
+const port   		= '3000';
 const url         = 'http://localhost:' + port + '/api/teddies';
 
 panier = gestionPanier(panier);
