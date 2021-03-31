@@ -113,7 +113,6 @@ function acheter(object) {
     panier.push(produit);
     enrPanier()
         .then( () => {
-            console.log(localStorage.getItem('panier'));
             onclick(quant)
         });
 }

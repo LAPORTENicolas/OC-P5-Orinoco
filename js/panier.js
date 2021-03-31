@@ -145,14 +145,13 @@ function affichagePanier() {
     prixTotalConteneur.appendChild(prixTotalLegende);
     prixTotalConteneur.appendChild(prixTotal);
 
-    affichageFormualire();
+    console.log(affichageFormualire());
 }
 
 // Permet d'affiché le formulaire
 function affichageFormualire() {
-    let champs                          = ['Nom', 'Prenom', 'Adresse', 'Ville', 'Email']
     let champ                           = getChamps();
-console.log(champ[0].id);
+
     let formulaireConteneur             = document.getElementById('formulaire');
     formulaireConteneur.className       = 'formulaire';
 
@@ -176,7 +175,7 @@ console.log(champ[0].id);
         tmpDivConteneur.id              = 'conteneur-' + champ[i].id;
 
         let tmpLabel                    = document.createElement('label');
-        let tmpLabelText                = document.createTextNode(champs[i] + ':');
+        let tmpLabelText                = document.createTextNode(champ[i].placeholder + ':');
         tmpLabel.htmlFor                = champ[i].id;
         tmpLabel.appendChild(tmpLabelText);
 
@@ -351,6 +350,3 @@ if (panier.length === 0 || panier === 'undefined') {
         }
     })
 }
-
-console.log(panier);
-getEltPanier();
