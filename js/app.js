@@ -52,7 +52,7 @@ function getEltPanier(){
     } else {
         let produit = 0;
         for (let i in panier){
-            produit = panier[i].quantite + produit;
+            produit = parseInt(panier[i].quantite) + parseInt(produit);
         }
         document.getElementById('p-panier').appendChild(document.createTextNode('Panier (' + produit + ')'));
     }
